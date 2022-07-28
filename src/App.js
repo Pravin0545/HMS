@@ -7,6 +7,7 @@ import { Details } from "./Component/Administration/Patient/Details";
 import { PatientsDetails } from "./Component/Administration/Patient/PatientsDetails";
 import { Payment } from "./Component/Administration/payment/Payment";
 import { Room } from "./Component/Administration/Room/Room";
+import "./Component/Common.css"
 
 // import "./App.css";
 import { Home } from "./Component/Home/Home";

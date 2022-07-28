@@ -1,0 +1,41 @@
+
+.logo{
+    width: 200px;
+    height: 80px;
+    margin: -25px;
+    position: relative;
+    right: 150px;bottom: 4px;
+}
+.slogan{
+    position: relative;
+    top: 15px;right: 33px;
+    z-index: 1;
+    font-size: 12px;
+    color: blue;
+}
+.navbar{
+    box-shadow: 0px 0px 5px lightseagreen;
+    text-align: center;
+   padding: 15px;
+}
+a{
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    margin-left: 30px;
+    position: relative;
+    left: 170px;
+}
+.administration{
+    box-shadow: 0px 0px 5px lightseagreen;
+   padding: 15px;
+}
+.administration a{
+    margin-left: 150px;
+}
+.administration h1{
+    margin: 0%;
+}
+.doctorimg{
+    width: 100%;
+}

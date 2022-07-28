@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const PatientsDetails = () => {
   return (
-    <div>
+    <div >
       <h1>PatientsDetails</h1>
 
       <Link to="/administration/patientdetails/newappointment">
