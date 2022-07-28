@@ -12,14 +12,22 @@ import { Room } from "./Component/Administration/Room/Room";
 import { Home } from "./Component/Home/Home";
 import { RoomAllocate } from "./Component/Administration/Room/RoomAllocate";
 import { RoomAllocateDetails } from "./Component/Administration/Room/RoomAllocateDetails";
+import { Aboutus } from "./Component/Home/Aboutus";
+import { ServicesProvided } from "./Component/Home/ServicesProvided";
+import { Contactus } from "./Component/Home/Contactus";
+import { Navbar } from "./Component/Navbar";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/administration" element={<Administration />} />
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/services" element={<ServicesProvided />} />
+          <Route path="/contactus" element={<Contactus />} />
           <Route
             path="/administration/patientdetails"
             element={<PatientsDetails />}
@@ -41,8 +49,14 @@ function App() {
             element={<Details />}
           />
           <Route path="/administration/room" element={<Room />} />
-          <Route path="/administration/room/roomallocatiom" element={<RoomAllocate />} />
-          <Route path="/administration/room/roomallocatiomdetails" element={<RoomAllocateDetails />} />
+          <Route
+            path="/administration/room/roomallocatiom"
+            element={<RoomAllocate />}
+          />
+          <Route
+            path="/administration/room/roomallocatiomdetails"
+            element={<RoomAllocateDetails />}
+          />
           <Route path="/administration/payment" element={<Payment />} />
         </Routes>
       </BrowserRouter>
