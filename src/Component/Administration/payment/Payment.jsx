@@ -1,5 +1,9 @@
 import React from "react";
 
 export const Payment = () => {
-  return <div>Payment</div>;
+  return (
+    <div>
+      <h1>Payment</h1>
+    </div>
+  );
 };

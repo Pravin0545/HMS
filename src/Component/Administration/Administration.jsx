@@ -1,16 +1,15 @@
 import React from "react";
-import { PatientsDetails } from "./Patient/PatientsDetails";
-import { Room } from "./Room/Room";
-import { Payment } from "./payment/Payment";
+import { Link } from "react-router-dom";
 
 export const Administration = () => {
   return (
     <div>
       <div>
-        Administration
-        {/* <PatientsDetails />
-        <Room />
-        <Payment /> */}
+        <h1>Administration</h1>
+
+        <Link to="/administration/patientdetails">PatientDetails</Link>
+        <Link to="/administration/room">Room</Link>
+        <Link to="/administration/payment">Payment</Link>
       </div>
     </div>
   );

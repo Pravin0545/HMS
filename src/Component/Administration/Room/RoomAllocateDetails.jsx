@@ -1,5 +1,9 @@
 import React from "react";
 
 export const RoomAllocateDetails = () => {
-  return <div>RoomAllocateDetails</div>;
+  return (
+    <div>
+      <h1>RoomAllocateDetails</h1>
+    </div>
+  );
 };

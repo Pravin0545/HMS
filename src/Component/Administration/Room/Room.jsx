@@ -1,13 +1,14 @@
 import React from "react";
-import { RoomAllocate } from "./RoomAllocate";
-import { RoomAllocateDetails } from "./RoomAllocateDetails";
+import { Link } from "react-router-dom";
 
 export const Room = () => {
   return (
     <div>
-      Room
-      <RoomAllocate />
-      <RoomAllocateDetails />
+      <h1>Room</h1>
+      <Link to="/administration/room/roomallocatiom">Room Allocatiom</Link>
+      <Link to="/administration/room/roomallocatiomdetails">
+        Room Allocatiom Details
+      </Link>
     </div>
   );
 };
