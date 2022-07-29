@@ -11,7 +11,7 @@ import { Home } from "./Component/Home/Home";
 import { RoomAllocate } from "./Component/Administration/Room/RoomAllocate";
 import { RoomAllocateDetails } from "./Component/Administration/Room/RoomAllocateDetails";
 import { Aboutus } from "./Component/Home/Aboutus";
-import { ServicesProvided } from "./Component/Home/ServicesProvided";
+import { Login } from "./Component/Home/Login";
 import { Contactus } from "./Component/Home/Contactus";
 import { Navbar } from "./Component/Navbar";
 import { Footer } from "./Component/Home/Footer";
@@ -23,9 +23,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/administration" element={<Administration />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/login/administration" element={<Administration />} />
           <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/services" element={<ServicesProvided />} />
           <Route path="/contactus" element={<Contactus />} />
           <Route
             path="/administration/patientdetails"
@@ -59,7 +59,6 @@ function App() {
           <Route path="/administration/payment" element={<Payment />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }

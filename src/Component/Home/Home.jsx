@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent, Grid } from "@mui/material";
+import { Footer } from "./Footer";
 
 export const Home = () => {
   return (
@@ -104,6 +105,7 @@ export const Home = () => {
           </Grid>
         </Grid>
       </div>
+      <Footer />
     </div>
   );
 };
