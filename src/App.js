@@ -15,6 +15,9 @@ import { Login } from "./Component/Home/Login";
 import { Contactus } from "./Component/Home/Contactus";
 import { Navbar } from "./Component/Navbar";
 import { Footer } from "./Component/Home/Footer";
+import { HeartT } from "./Component/Home/HeartT";
+import { Cancer } from "./Component/Home/Cancer";
+import { Bone } from "./Component/Home/Bone";
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/heartt" element={<HeartT />} />
+          <Route path="/cancer" element={<Cancer />} />
+          <Route path="/bone" element={<Bone />} />
           <Route path="/login" element={<Login />} />
           <Route path="/login/administration" element={<Administration />} />
           <Route path="/aboutus" element={<Aboutus />} />

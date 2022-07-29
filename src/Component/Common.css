@@ -78,8 +78,15 @@ a {
     /* text-align: center; */
     /* height: 100%; */
 }
-.footer{
+
+.footer {
     background-color: black;
     color: white;
     height: 200px;
+}
+
+.dcard1 {
+    background-color: #2AAA8A;
+    border: 2px solid #191970;
+    margin: 10px 10px 40px 40px;
 }

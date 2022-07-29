@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, CardContent, Grid } from "@mui/material";
+import { Card, CardContent, Grid, Button } from "@mui/material";
 import { Footer } from "./Footer";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -48,6 +49,11 @@ export const Home = () => {
                       24X7
                     </h4>
                   </Grid>
+                  <Grid item xs={12}>
+                    <Link to="/heartt">
+                      <Button variant="contained">View</Button>
+                    </Link>
+                  </Grid>
                 </Grid>
               </CardContent>
             </Card>
@@ -71,6 +77,11 @@ export const Home = () => {
                   <Grid item xs={6}></Grid>
                   <Grid item xs={6}>
                     <h4>World Leaders in Oncology Care.</h4>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Link to="/cancer">
+                      <Button variant="contained">View</Button>
+                    </Link>
                   </Grid>
                 </Grid>
               </CardContent>
@@ -99,13 +110,18 @@ export const Home = () => {
                       procedures
                     </h4>
                   </Grid>
+                  <Grid item xs={12}>
+                    <Link to="/bone">
+                      <Button variant="contained">View</Button>
+                    </Link>
+                  </Grid>
                 </Grid>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-      
-      <Footer/>
+
+        <Footer />
       </div>
     </div>
   );
