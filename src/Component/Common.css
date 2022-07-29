@@ -1,41 +1,57 @@
-
-.logo{
+.logo {
     width: 200px;
     height: 80px;
     margin: -25px;
     position: relative;
-    right: 150px;bottom: 4px;
+    right: 150px;
+    bottom: 4px;
 }
-.slogan{
+
+.slogan {
     position: relative;
-    top: 15px;right: 33px;
+    top: 15px;
+    right: 33px;
     z-index: 1;
     font-size: 12px;
-    color: blue;
+    color: #2AAA8A;
 }
-.navbar{
-    box-shadow: 0px 0px 5px lightseagreen;
+
+.navbar {
+    box-shadow: 0px 0px 5px #2AAA8A;
     text-align: center;
-   padding: 15px;
+    padding: 15px;
 }
-a{
+
+a {
     text-decoration: none;
     font-size: 25px;
-    color: black;
+    color: #191970;
     margin-left: 30px;
     position: relative;
     left: 170px;
 }
-.administration{
-    box-shadow: 0px 0px 5px lightseagreen;
-   padding: 15px;
+
+.administration {
+    box-shadow: 0px 0px 5px #2AAA8A;
+    padding: 15px;
+    /* color: #2AAA8A; */
 }
-.administration a{
+
+.admin {
+    text-align: center;
+    padding: 20px;
+    color: #2AAA8A;
+
+}
+
+.administration a {
     margin-left: 150px;
 }
-.administration h1{
+
+.administration h1 {
     margin: 0%;
 }
-.doctorimg{
+
+.doctorimg {
     width: 100%;
 }

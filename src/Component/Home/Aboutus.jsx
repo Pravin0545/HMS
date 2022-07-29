@@ -4,7 +4,7 @@ export const Aboutus = () => {
   return (
     <div>
       <div>
-        <h1>Aboutus</h1>
+        <h1 className="admin">Aboutus</h1>
       </div>
     </div>
   );

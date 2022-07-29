@@ -1,0 +1,53 @@
+Name Of The project:- Hospital Management System
+
+
+
+1 Objective:-
+
+• Design and develop a simple Hospital management system as per following specifications
+
+
+
+2 Actors / Roles:-
+
+• Visitor:-
+
+o Able to see home page of the Hospital with facalities that hospital provides and apply for Appointment for the respected service
+
+• Hospital Employee:-
+
+o Able to login 
+o View / download the patient appointment details and create new appointment
+o Room allotment and discharge for patients.
+o Account Settelment.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+UX Design
+
+homepage :-
+
+1.Decises and treatment with images using material ui(cards) leftside of the home screen.
+2.Navbar(Home,About us,services,contact us) 
+3.login card right side.
+4.appointment Card below login page.
+
+---------------------------------------------------------------------------------------------
+for Hospital employee after login
+
+Administration:-
+
+a.Patient Details:-
+
+1.New appointment
+2.todays appointment,
+3.patient details.
+
+b. Room allocation.
+1.room alocate.
+2.room alocate details.
+
+c Payment Details.
+1.payment(hardcode value).
+

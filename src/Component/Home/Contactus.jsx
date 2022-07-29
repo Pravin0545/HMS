@@ -5,7 +5,7 @@ export const Contactus = () => {
   return (
     <div>
       <div>
-        <h1>Contactus</h1>
+        <h1 className="admin">Contactus</h1>
       </div>
     </div>
   );

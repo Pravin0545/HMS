@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 export const Administration = () => {
   return (
     <div className="administration">
-      
-        <h1>Administration</h1>
+      <h1 className="admin">Administration</h1>
 
-        <Link to="/administration/patientdetails">PatientDetails</Link>
-        <Link to="/administration/room">Room</Link>
-        <Link to="/administration/payment">Payment</Link>
-      
+      <Link to="/administration/patientdetails">PatientDetails</Link>
+      <Link to="/administration/room">Room</Link>
+      <Link to="/administration/payment">Payment</Link>
     </div>
   );
 };
