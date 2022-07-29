@@ -1,4 +1,3 @@
-// import logo from "./logo.svg";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Administration } from "./Component/Administration/Administration";
 import { NewAppointment } from "./Component/Administration/Patient/NewAppointment";
@@ -7,9 +6,7 @@ import { Details } from "./Component/Administration/Patient/Details";
 import { PatientsDetails } from "./Component/Administration/Patient/PatientsDetails";
 import { Payment } from "./Component/Administration/payment/Payment";
 import { Room } from "./Component/Administration/Room/Room";
-import "./Component/Common.css"
-
-// import "./App.css";
+import "./Component/Common.css";
 import { Home } from "./Component/Home/Home";
 import { RoomAllocate } from "./Component/Administration/Room/RoomAllocate";
 import { RoomAllocateDetails } from "./Component/Administration/Room/RoomAllocateDetails";
@@ -17,6 +14,7 @@ import { Aboutus } from "./Component/Home/Aboutus";
 import { ServicesProvided } from "./Component/Home/ServicesProvided";
 import { Contactus } from "./Component/Home/Contactus";
 import { Navbar } from "./Component/Navbar";
+import { Footer } from "./Component/Home/Footer";
 
 function App() {
   return (
@@ -61,6 +59,7 @@ function App() {
           <Route path="/administration/payment" element={<Payment />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
