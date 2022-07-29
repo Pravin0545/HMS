@@ -104,8 +104,9 @@ export const Home = () => {
             </Card>
           </Grid>
         </Grid>
+      
+      <Footer/>
       </div>
-      <Footer />
     </div>
   );
 };

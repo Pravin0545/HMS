@@ -52,9 +52,11 @@ export const Aboutus = () => {
           magni pariatur unde. Nulla labore sapiente architecto quas natus quam
           non.
         </p>
-      </div>
-      </div>
+        <br />
       <Footer />
+      </div>
+      
+      </div>
 
 
     </div>

@@ -7,12 +7,12 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 export const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
-      <Grid container>
+    <div >
+      {/* <h1>Footer</h1> */}
+      <Grid container >
         <Grid item xs={4}>
-          <Card>
-            <CardContent>
+          <Card >
+            <CardContent className="footer">
               <h3>Phone</h3>
               <LocalPhoneIcon /> <br />
               <label>Phone NO:- +91 9876543210</label>
@@ -23,7 +23,7 @@ export const Footer = () => {
         </Grid>
         <Grid item xs={4}>
           <Card>
-            <CardContent>
+            <CardContent className="footer">
               <h3>Social Media</h3>
               <Grid container>
                 <Grid item xs={6}>
@@ -40,7 +40,7 @@ export const Footer = () => {
         </Grid>
         <Grid item xs={4}>
           <Card>
-            <CardContent>
+            <CardContent className="footer">
               <h3>Address</h3>
               <LocationCityIcon />
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ab.</p>
