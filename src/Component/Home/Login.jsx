@@ -6,9 +6,11 @@ import { Footer } from "./Footer";
 export const Login = () => {
   const [username,setUsername]=useState()
   const [password,setPassword]=useState()
-  const[isvalid,setIsvalid]=useState(true)
-console.log(username)
-console.log(password)
+
+  const handelreset=()=>{
+    setPassword("")
+    setUsername("")
+  }
   return (
     <div>
       <div>
@@ -20,7 +22,7 @@ console.log(password)
                 <h3>Enter UserName</h3>
                 </Grid>
                 <Grid item xs={6}>
-                    <TextField label="Enter UserName" variant="outlined" onChange={(e)=>setUsername(e.target.value)}></TextField>
+                    <TextField label="Enter UserName" variant="outlined" value={username} onChange={(e)=>setUsername(e.target.value)}></TextField>
                 </Grid>
             </Grid><br />
             <Grid container spacing={2}>
@@ -30,7 +32,7 @@ console.log(password)
                 <h3>Enter Password</h3>
                 </Grid>
                 <Grid item xs={6}>
-                    <TextField label="Enter Password" variant="outlined" onChange={(e)=>setPassword(e.target.value)}></TextField>
+                    <TextField label="Enter Password" variant="outlined" value={password} onChange={(e)=>setPassword(e.target.value)}></TextField>
                 </Grid>
             </Grid><br />
             <Grid container spacing={2}>
@@ -41,11 +43,13 @@ console.log(password)
               <Link to="/login/administration"><Button variant="contained">Login</Button></Link>:null
                   }
                 </Grid>
-                <Grid item xs={2}>
-                    <Button variant="contained">Cancel</Button>
+                <Grid item xs={1}>
+                  <Button variant="contained" onClick={()=>handelreset()}>RESET</Button>
                 </Grid>
-                <Grid item xs={4}>
-                   <Button variant="contained">Sign-Up</Button>
+                <Grid item xs={2}>
+                  <Link to="/">
+                   <Button variant="contained">CANCEL</Button>
+                   </Link>
                 </Grid>
             </Grid>
             <br />
