@@ -18,6 +18,7 @@ import { Footer } from "./Component/Home/Footer";
 import { HeartT } from "./Component/Home/HeartT";
 import { Cancer } from "./Component/Home/Cancer";
 import { Bone } from "./Component/Home/Bone";
+import { Registration } from "./Component/Home/Registration";
 
 function App() {
   return (
@@ -27,8 +28,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/heartt" element={<HeartT />} />
+          <Route path="/heartt/registration" element={<Registration />} />
           <Route path="/cancer" element={<Cancer />} />
+          <Route path="/cancer/registration" element={<Registration />} />
           <Route path="/bone" element={<Bone />} />
+          <Route path="/bone/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/login/administration" element={<Administration />} />
           <Route path="/aboutus" element={<Aboutus />} />

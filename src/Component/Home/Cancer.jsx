@@ -1,11 +1,12 @@
 import React from "react";
 import { Grid, Card, CardContent, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom";
 
 export const Cancer = () => {
   return (
     <div>
-      <h1>Cancer</h1>
+      <h1 className="admin">Cancer</h1>
       <h1>OverView</h1>
       <p>
         Cancer is a generic term for a large group of diseases that can affect
@@ -39,7 +40,9 @@ export const Cancer = () => {
                     Pariatur similique deserunt est sequi accusantium
                     voluptatibus ut recusandae! Repellendus, voluptatum nemo!
                   </p>
-                  <Button variant="contained">Appointment</Button>
+                  <Link to="/cancer/registration">
+                    <Button variant="contained">Appointment</Button>
+                  </Link>
                 </Grid>
               </Grid>
             </CardContent>
@@ -65,7 +68,9 @@ export const Cancer = () => {
                     Pariatur similique deserunt est sequi accusantium
                     voluptatibus ut recusandae! Repellendus, voluptatum nemo!
                   </p>
-                  <Button variant="contained">Appointment</Button>
+                  <Link to="/cancer/registration">
+                    <Button variant="contained">Appointment</Button>
+                  </Link>
                 </Grid>
                 <Grid item xs={1}></Grid>
               </Grid>

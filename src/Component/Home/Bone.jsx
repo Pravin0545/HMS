@@ -1,11 +1,12 @@
 import React from "react";
 import { Grid, Card, CardContent, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom";
 
 export const Bone = () => {
   return (
     <div>
-      <h1>Bone</h1>
+      <h1 className="admin">Bone</h1>
       <h1>Overview</h1>
       <p>
         Bones provide support for our bodies and help form our shape. Although
@@ -40,7 +41,9 @@ export const Bone = () => {
                     Pariatur similique deserunt est sequi accusantium
                     voluptatibus ut recusandae! Repellendus, voluptatum nemo!
                   </p>
-                  <Button variant="contained">Appointment</Button>
+                  <Link to="/bone/registration">
+                    <Button variant="contained">Appointment</Button>
+                  </Link>
                 </Grid>
               </Grid>
             </CardContent>
@@ -66,7 +69,9 @@ export const Bone = () => {
                     Pariatur similique deserunt est sequi accusantium
                     voluptatibus ut recusandae! Repellendus, voluptatum nemo!
                   </p>
-                  <Button variant="contained">Appointment</Button>
+                  <Link to="/bone/registration">
+                    <Button variant="contained">Appointment</Button>
+                  </Link>
                 </Grid>
                 <Grid item xs={1}></Grid>
               </Grid>
