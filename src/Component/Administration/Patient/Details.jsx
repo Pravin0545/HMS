@@ -4,7 +4,7 @@ import { Card,CardContent,Grid } from "@mui/material";
 export const Details = () => {
   return (
     <div>
-      <h2 style={{textAlign:"center",color:"blue"}}>Details</h2>
+      <h2 style={{textAlign:"center",color:"blue",margin:"20px"}}>Details</h2>
       <Card className="patientdetails1">
         <CardContent className="patientdetails">
           <Grid container>

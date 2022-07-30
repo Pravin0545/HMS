@@ -4,7 +4,7 @@ import { Grid,TextField,Button } from "@mui/material";
 export const NewAppointment = () => {
   return( 
   <div >
-    <h2 style={{textAlign:"center",color:"blue"}}>NewAppointment</h2>
+    <h2 style={{textAlign:"center",color:"blue",margin:"20px"}}>NewAppointment</h2>
     <div className="appointmentapplication">
     <Grid container>
       <Grid item xs={2}></Grid>
