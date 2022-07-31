@@ -9,13 +9,13 @@ import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
 export const Contactus = () => {
   return (
     <div>
-      <div>
+      <div className="contact">
         <h1 className="admin">Contact Us</h1>
         <Grid container>
           <Grid item xs={12}>
             <Card>
               <CardContent>
-                <h3>Phone</h3>
+                <h2>Phone</h2>
                 <LocalPhoneIcon /> <br />
                 <label>Phone NO:- +91 9876543210</label>
                 <br />
@@ -26,7 +26,7 @@ export const Contactus = () => {
           <Grid item xs={12}>
             <Card>
               <CardContent>
-                <h3>Social Media</h3>
+                <h2>Social Media</h2>
                 <Grid container>
                   <Grid item xs={4}>
                     <TwitterIcon />
@@ -47,7 +47,7 @@ export const Contactus = () => {
           <Grid item xs={12}>
             <Card>
               <CardContent>
-                <h3>Address</h3>
+                <h2>Address</h2>
                 <LocationCityIcon />
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,

@@ -20,17 +20,19 @@ export const Navbar = () => {
             </Grid>
             <Grid item xs={1}></Grid>
             <Grid item xs={2}>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <h4>Home</h4>
+              </Link>
             </Grid>
             <Grid item xs={2}>
-              <Link to="/login">Login</Link>
+              <Link to="/login"><h4>Login</h4></Link>
             </Grid>
 
             <Grid item xs={2}>
-              <Link to="/aboutus">AboutUs</Link>
+              <Link to="/aboutus"><h4>About Us</h4></Link>
             </Grid>
             <Grid item xs={2}>
-              <Link to="/contactus">ContactUs</Link>
+              <Link to="/contactus"><h4>Contact Us</h4></Link>
             </Grid>
           </Grid>
         </CardContent>
