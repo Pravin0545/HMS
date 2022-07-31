@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Administration } from "./Component/Administration/Administration";
 import { NewAppointment } from "./Component/Administration/Patient/NewAppointment";
-import { TodaysAppointment } from "./Component/Administration/Patient/TodaysAppointment";
+// import { TodaysAppointment } from "./Component/Administration/Patient/TodaysAppointment";
 import { Details } from "./Component/Administration/Patient/Details";
 import { PatientsDetails } from "./Component/Administration/Patient/PatientsDetails";
 import { Payment } from "./Component/Administration/payment/Payment";
@@ -14,7 +14,7 @@ import { Aboutus } from "./Component/Home/Aboutus";
 import { Login } from "./Component/Home/Login";
 import { Contactus } from "./Component/Home/Contactus";
 import { Navbar } from "./Component/Navbar";
-import { Footer } from "./Component/Home/Footer";
+// import { Footer } from "./Component/Home/Footer";
 import { HeartT } from "./Component/Home/HeartT";
 import { Cancer } from "./Component/Home/Cancer";
 import { Bone } from "./Component/Home/Bone";
@@ -45,10 +45,10 @@ function App() {
             path="/administration/patientdetails/newappointment"
             element={<NewAppointment />}
           />
-          <Route
+          {/* <Route
             path="/administration/patientdetails/todaysappointment"
             element={<TodaysAppointment />}
-          />
+          /> */}
           <Route
             path="/administration/patientdetails/newappointment"
             element={<NewAppointment />}

@@ -1,6 +1,7 @@
-*{
+* {
     margin: 0;
 }
+
 .logo {
     width: 200px;
     height: 80px;
@@ -85,7 +86,7 @@ a {
 .footer {
     background-color: #191970;
     color: white;
-    height: 200px;
+    height: 80px;
 }
 
 .dcard1 {
@@ -93,25 +94,36 @@ a {
     border: 2px solid #191970;
     margin: 10px 10px 40px 40px;
 }
-.appointmentapplication{
+
+.appointmentapplication {
     box-shadow: 0 0px 5px black;
     padding: 15px;
     margin-left: 10%;
     margin-right: 10%;
 
 }
-.patientdetails1{
+
+.patientdetails1 {
     margin: 15px;
     border: 1px solid black;
 }
-.patientdetails h4{
+
+.patientdetails h4 {
     margin: 0;
 }
-.partientdetailsnavbar{
+
+.partientdetailsnavbar {
     box-shadow: 0px 0px 5px #2AAA8A;
     padding: 15px;
 }
-.partientdetailsnavbar a{
-    color: blue;
+
+.partientdetailsnavbar a {
+    color: #191970;
     margin-left: 150px;
+}
+
+.roomal {
+    text-align: center;
+    padding: 20px;
+    color: #191970;
 }
