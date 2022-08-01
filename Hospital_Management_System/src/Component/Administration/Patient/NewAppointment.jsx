@@ -5,7 +5,7 @@ export const NewAppointment = () => {
   const [user, setUser] = useState({});
   const [data, setData] = useState([]);
 
-  sessionStorage.setItem("userdata",JSON.stringify(data))
+  localStorage.setItem("userdata",JSON.stringify(data))
   // console.log(user);
 
   const handlesubmit = () => {
