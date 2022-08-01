@@ -6,7 +6,7 @@ export const Aboutus = () => {
     <div>
       <div >
         
-      {/* <img src="./img/AboutusB.webp" alt="" className="aboutimg" /> */}
+      <img src="./img/AboutusB.webp" alt="" className="aboutimg" />
       <div className="aboutuscontent">
         <h1 className="admin">Aboutus</h1>
         <h2>About Medical Services, XYZ, India</h2>

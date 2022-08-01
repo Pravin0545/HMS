@@ -1,18 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
+import { Tabs,Tab } from "@mui/material"
+import {NewAppointment} from "./NewAppointment"
+import {Details} from "./Details"
 
 export const PatientsDetails = () => {
+  
+  const [val,setVal]=useState("newappointment")
   return (
     <div>
       <h1 className="admin">PatientsDetails</h1>
-      <div className="partientdetailsnavbar">
-        <Link to="/administration/patientdetails/newappointment">
-          New Appointment
-        </Link>
-        {/* <Link to="/administration/patientdetails/todaysappointment">
-        Today's Appointment
-      </Link> */}
-        <Link to="/administration/patientdetails/details">Details</Link>
+      <div >
+        <Tabs  value={val} onChange={(e,value)=>setVal(value)}>
+          <Tab value="newappointment" label="New Appointment"/>
+          <Tab value="details" label="Details"/>
+        </Tabs>
+        
+        {val==="newappointment" && <NewAppointment/>}
+            {val==="details" && <Details/>}
       </div>
     </div>
   );

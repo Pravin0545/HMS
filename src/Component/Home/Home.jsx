@@ -7,9 +7,8 @@ export const Home = () => {
   return (
     <div>
       <div>
-        {/* <img src="./img/doctor.jpg" alt="" className="doctorimg" /> */}
-        <div className="homecontent" >
-          <div className="hometext">
+        <img src="./img/doctor.jpg" alt="" className="doctorimg" />
+        <div className="homecontent">
           <h1>Your Most Trusted</h1>
           <h1>Health Partner</h1>
           <br />
@@ -22,9 +21,10 @@ export const Home = () => {
             <br />
             quibusdam placeat quaerat doloremque assumenda quia asperiores.
           </p>
-          </div>
         </div>
-        
+        <br />
+        <br />
+        <br />
       </div>
 
       <div className="homecard">
