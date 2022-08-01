@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Grid } from "@mui/material";
+// import { Card, CardContent, Grid } from "@mui/material";
 
 export const Details = () => {
   const result = JSON.parse(sessionStorage.getItem("userdata"));
@@ -7,33 +7,29 @@ export const Details = () => {
 
   return (
     <div>
-      <h2 style={{ textAlign: "center", color: "blue", margin: "20px" }}>
-        Details
-      </h2>
-      <Card className="patientdetails1">
-        <CardContent className="patientdetails">
-          <Grid container>
-            <Grid item xs={2}>
-              <h4>Bhimendra M Nerli</h4>
-            </Grid>
-            <Grid item xs={2}>
-              <h4>8310474929</h4>
-            </Grid>
-            <Grid item xs={2}>
-              <h4>xyz@gmail.com</h4>
-            </Grid>
-            <Grid item xs={2}>
-              <h4>22-09-1998</h4>
-            </Grid>
-            <Grid item xs={2}>
-              <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h4>
-            </Grid>
-            <Grid item xs={2}>
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+      <h2 className="admin">Details</h2>
+      <div className="detailst">
+        <table className="table">
+          <tr>
+            <th>Name</th>
+            <th>Mobile NO</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Address</th>
+          </tr>
+          {result.map((item) => {
+            return (
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.number}</td>
+                <td>{item.email}</td>
+                <td>{item.dob}</td>
+                <td>{item.address}</td>
+              </tr>
+            );
+          })}
+        </table>
+      </div>
     </div>
   );
 };

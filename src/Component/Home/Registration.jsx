@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 
 export const Registration = () => {
+  const [user, setUser] = useState({});
+  const [data, setData] = useState([]);
+
+  sessionStorage.setItem("userdata", JSON.stringify(data));
+  // console.log(user);
+
+  const handlesubmit = () => {
+    setData([...data, user]);
+    console.log(data);
+  };
   return (
     <div>
-      <h2 style={{ textAlign: "center", color: " #2AAA8A", margin: "20px" }}>
-        NewAppointment
-      </h2>
+      <h2 className="admin">NewAppointment</h2>
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>
@@ -18,6 +26,7 @@ export const Registration = () => {
               variant="outlined"
               label="Enter Full Name"
               type="text"
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
               required
             ></TextField>
           </Grid>
@@ -29,6 +38,7 @@ export const Registration = () => {
               variant="outlined"
               label="Enter Number"
               type="number"
+              onChange={(e) => setUser({ ...user, number: e.target.value })}
               required
             ></TextField>
           </Grid>
@@ -44,15 +54,21 @@ export const Registration = () => {
             <TextField
               variant="outlined"
               label="Enter Email"
-              type="text"
+              type="email"
               required
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
             ></TextField>
           </Grid>
           <Grid item xs={1.5}>
             <h3>Enter DOB:</h3>
           </Grid>
           <Grid item xs={2.1}>
-            <TextField variant="outlined" type="date" fullWidth></TextField>
+            <TextField
+              variant="outlined"
+              type="date"
+              onChange={(e) => setUser({ ...user, dob: e.target.value })}
+              fullWidth
+            ></TextField>
           </Grid>
         </Grid>
         <br />
@@ -67,6 +83,7 @@ export const Registration = () => {
               variant="outlined"
               label="Enter Address"
               required
+              onChange={(e) => setUser({ ...user, address: e.target.value })}
               fullWidth
             />
           </Grid>
@@ -89,7 +106,9 @@ export const Registration = () => {
             <Button variant="contained">CANCEL</Button>
           </Grid>
           <Grid item xs={2}>
-            <Button variant="contained">SUBMIT</Button>
+            <Button variant="contained" onClick={() => handlesubmit()}>
+              SUBMIT
+            </Button>
           </Grid>
         </Grid>
       </div>

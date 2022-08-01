@@ -10,7 +10,7 @@ export const NewAppointment = () => {
 
   const handlesubmit = () => {
     setData([...data, user]);
-    // console.log(data);
+    console.log(data);
   };
   return (
     <div>
