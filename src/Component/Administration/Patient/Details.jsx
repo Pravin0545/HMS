@@ -1,15 +1,17 @@
 import React from "react";
-import { Card,CardContent,Grid } from "@mui/material";
+import { Card, CardContent, Grid } from "@mui/material";
 
-export const Details = () => {
+export const Details = (props) => {
+  const item = [props];
+  console.log(item);
   return (
     <div>
-      <h2 style={{textAlign:"center",color:"blue",margin:"20px"}}>Details</h2>
+      <h2 className="admin">Details</h2>
       <Card className="patientdetails1">
         <CardContent className="patientdetails">
           <Grid container>
             <Grid item xs={2}>
-              <h4>Bhimendra M Nerli</h4>
+              <h4>{item.name}</h4>
             </Grid>
             <Grid item xs={2}>
               <h4>8310474929</h4>
@@ -29,7 +31,6 @@ export const Details = () => {
           </Grid>
         </CardContent>
       </Card>
-
     </div>
   );
 };
