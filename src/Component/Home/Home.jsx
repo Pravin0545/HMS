@@ -7,27 +7,29 @@ export const Home = () => {
   return (
     <div>
       <div>
-        <img src="./img/doctor.jpg" alt="" className="doctorimg" />
+        {/* <img src="./img/doctor.jpg" alt="" className="doctorimg" /> */}
         <div className="homecontent">
-          <h1>Your Most Trusted</h1>
-          <h1>Health Partner</h1>
-          <br />
-          <h3>The Best Match Services For You</h3>
-          <br />
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Est,
-            incidunt at ipsam hic vitae perspiciatis earum dolorum facilis{" "}
+          <div className="homecard">
+            <h1>Your Most Trusted</h1>
+            <h1>Health Partner</h1>
             <br />
-            quibusdam placeat quaerat doloremque assumenda quia asperiores.
-          </p>
+            <h3>The Best Match Services For You</h3>
+            <br />
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />{" "}
+              Est, incidunt at ipsam hic vitae perspiciatis earum dolorum
+              facilis <br />
+              quibusdam placeat quaerat doloremque assumenda quia asperiores.
+            </p>
+          </div>
+          <br />
+          <br />
+          <br />
         </div>
-        <br />
-        <br />
-        <br />
       </div>
 
-      <div className="homecard">
+      <div>
         <h1 className="admin">CENTERS OF EXCELLENCE</h1>
 
         <Grid container spacing={2}>
