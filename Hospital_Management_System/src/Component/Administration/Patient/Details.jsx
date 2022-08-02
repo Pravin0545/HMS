@@ -7,7 +7,7 @@ export const Details = () => {
   console.log(result);
 
   useEffect(() => {
-    setData(result);
+    setData([...data, result]);
   }, []);
 
   return (

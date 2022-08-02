@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 
-export const NewAppointment = () => {
+export const NewAppointment = ({ setPdata }) => {
   const [user, setUser] = useState({});
   const [data, setData] = useState([]);
 
-  localStorage.setItem("userdata",JSON.stringify(data))
+  // localStorage.setItem("userdata",JSON.stringify(data))
   // console.log(user);
 
   const handlesubmit = () => {
     setData([...data, user]);
-    console.log(data);
+    // console.log();
   };
+  setPdata(data);
   return (
     <div>
       <h2 className="admin">NewAppointment</h2>
@@ -88,7 +89,7 @@ export const NewAppointment = () => {
             ></TextField>
           </Grid>
           <Grid item xs={1.5}>
-            <h3>Appointment  Date:</h3>
+            <h3>Appointment Date:</h3>
           </Grid>
           <Grid item xs={2.1}>
             <TextField
