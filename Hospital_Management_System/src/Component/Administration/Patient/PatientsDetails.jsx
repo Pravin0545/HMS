@@ -1,28 +1,23 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 // import { Link } from "react-router-dom";
-import { Tabs, Tab } from "@mui/material";
-import { NewAppointment } from "./NewAppointment";
-import { Details } from "./Details";
+import { Tabs,Tab } from "@mui/material"
+import {NewAppointment} from "./NewAppointment"
+import {Details} from "./Details"
 
 export const PatientsDetails = () => {
-  const [pdetails, setPdetails] = useState([]);
-
-  console.log(pdetails);
-
-  const [val, setVal] = useState("newappointment");
+  
+  const [val,setVal]=useState("newappointment")
   return (
     <div>
       <h1 className="admin">PatientsDetails</h1>
-      <div>
-        <Tabs value={val} onChange={(e, value) => setVal(value)}>
-          <Tab value="newappointment" label="New Appointment" />
-          <Tab value="details" label="Details" />
+      <div >
+        <Tabs  value={val} onChange={(e,value)=>setVal(value)}>
+          <Tab value="newappointment" label="New Appointment"/>
+          <Tab value="details" label="Details"/>
         </Tabs>
-
-        {val === "newappointment" && (
-          <NewAppointment setPdetails={setPdetails} />
-        )}
-        {val === "details" && <Details />}
+        
+        {val==="newappointment" && <NewAppointment/>}
+            {val==="details" && <Details/>}
       </div>
     </div>
   );
