@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 
-export const NewAppointment = () => {
+export const NewAppointment = ({ setPdetails }) => {
   const [user, setUser] = useState({});
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  localStorage.setItem("userdata",JSON.stringify(data))
+  // localStorage.setItem("userdata", JSON.stringify(data));
   // console.log(user);
 
   const handlesubmit = () => {
-    setData([...data, user]);
-    console.log(data);
+    setPdetails([...user, user]);
+    // console.log();
   };
   return (
     <div>
@@ -23,6 +23,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={2.5}>
             <TextField
+              // value={user}
               variant="outlined"
               label="Enter Full Name"
               type="text"
