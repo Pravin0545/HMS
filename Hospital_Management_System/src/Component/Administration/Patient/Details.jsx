@@ -21,6 +21,8 @@ export const Details = () => {
             <th>Email</th>
             <th>DOB</th>
             <th>Address</th>
+            <th>Aadhar No</th>
+            <th>Date Of Appointment</th>
           </tr>
           {data.map((item) => {
             return (
@@ -30,6 +32,8 @@ export const Details = () => {
                 <td>{item.email}</td>
                 <td>{item.dob}</td>
                 <td>{item.address}</td>
+                <td>{item.aadhar}</td>
+                <td>{item.date}</td>
               </tr>
             );
           })}

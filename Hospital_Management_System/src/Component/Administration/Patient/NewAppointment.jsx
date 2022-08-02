@@ -77,6 +77,34 @@ export const NewAppointment = ({ setPdetails }) => {
         <Grid container>
           <Grid item xs={2}></Grid>
           <Grid item xs={1.5}>
+            <h3>Enter Aadhar:</h3>
+          </Grid>
+          <Grid item xs={2.5}>
+            <TextField
+              variant="outlined"
+              label="Enter Aadhar Number"
+              type="email"
+              required
+              onChange={(e) => setUser({ ...user, aadhar: e.target.value })}
+            ></TextField>
+          </Grid>
+          <Grid item xs={1.5}>
+            <h3>Appointment  Date:</h3>
+          </Grid>
+          <Grid item xs={2.1}>
+            <TextField
+              variant="outlined"
+              type="date"
+              onChange={(e) => setUser({ ...user, date: e.target.value })}
+              fullWidth
+            ></TextField>
+          </Grid>
+        </Grid>
+        <br />
+        <br />
+        <Grid container>
+          <Grid item xs={2}></Grid>
+          <Grid item xs={1.5}>
             <h3>Enter Address</h3>
           </Grid>
           <Grid item xs={6.1}>
