@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 
-export const NewAppointment = ({ setPdata }) => {
+export const NewAppointment = ({ handlesubmit }) => {
   const [user, setUser] = useState({});
-  const [data, setData] = useState([]);
 
   // localStorage.setItem("userdata",JSON.stringify(data))
+
+  // setPdata(data);
+  // console.log(data);
   // console.log(user);
 
-  const handlesubmit = () => {
-    setData([...data, user]);
-    // console.log();
-  };
-  setPdata(data);
   return (
     <div>
       <h2 className="admin">NewAppointment</h2>
@@ -135,7 +132,7 @@ export const NewAppointment = ({ setPdata }) => {
             <Button variant="contained">CANCEL</Button>
           </Grid>
           <Grid item xs={2}>
-            <Button variant="contained" onClick={() => handlesubmit()}>
+            <Button variant="contained" onClick={() => handlesubmit(user)}>
               SUBMIT
             </Button>
           </Grid>

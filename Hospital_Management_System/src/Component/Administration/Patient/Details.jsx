@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 // import { Card, CardContent, Grid } from "@mui/material";
 
 export const Details = () => {
-  const [data, setData] = useState([]);
   const result = JSON.parse(localStorage.getItem("userdata"));
   console.log(result);
-
-  useEffect(() => {
-    setData([...data, result]);
-  }, []);
+  console.log(result);
 
   return (
     <div>
@@ -24,7 +20,7 @@ export const Details = () => {
             <th>Aadhar No</th>
             <th>Date Of Appointment</th>
           </tr>
-          {data.map((item) => {
+          {result.map((item) => {
             return (
               <tr>
                 <td>{item.name}</td>

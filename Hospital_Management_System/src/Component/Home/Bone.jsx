@@ -1,82 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Card, CardContent, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
 
+import { data, Overviewbone } from "./BoneData";
+
 export const Bone = () => {
+  const [bonedata, setBoneData] = useState(data);
+  const [overview, setOverview] = useState(Overviewbone);
   return (
     <div>
       <h1 className="admin">Bone</h1>
       <h1>Overview</h1>
-      <p>
-        Bones provide support for our bodies and help form our shape. Although
-        they're very light, bones are strong enough to support our entire
-        weight. Bones also protect the body's organs. The skull protects the
-        brain and forms the shape of the face. The spinal cord, a pathway for
-        messages between the brain and the body, is protected by the backbone,
-        or spinal column. The ribs form a cage that shelters the heart and
-        lungs, and the pelvis helps protect the bladder, part of the intestines,
-        and in women, the reproductive organs.
-      </p>
+      <br />
+      <br />
+      <p>{overview}</p>
+      <br />
+      <br />
+      <br />
       <Grid container>
         <Grid item xs={12}>
-          <Card>
-            <CardContent className="dcard1">
-              <Grid container>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={2}>
-                  {" "}
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="./img/Doctor1.webp"
-                    sx={{ width: 150, height: 150 }}
-                  />
-                </Grid>
-                <Grid item xs={8}>
-                  <h4>Dr.M.K.Gandhi</h4>
-                  <h4>MD.DM(Medical Bone and Joints)</h4>
-                  <h3>12 Years Experience</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Pariatur similique deserunt est sequi accusantium
-                    voluptatibus ut recusandae! Repellendus, voluptatum nemo!
-                  </p>
-                  <Link to="/bone/registration">
-                    <Button variant="contained">Appointment</Button>
-                  </Link>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="dcard1">
-              <Grid container>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={2}>
-                  {" "}
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="./img/Doctor1.webp"
-                    sx={{ width: 150, height: 150 }}
-                  />
-                </Grid>
-                <Grid item xs={8}>
-                  <h4>Dr.M.K.Sinha</h4>
-                  <h4>MD.DM(Medical Bone and Joints)</h4>
-                  <h3>10 Years Experience</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Pariatur similique deserunt est sequi accusantium
-                    voluptatibus ut recusandae! Repellendus, voluptatum nemo!
-                  </p>
-                  <Link to="/bone/registration">
-                    <Button variant="contained">Appointment</Button>
-                  </Link>
-                </Grid>
-                <Grid item xs={1}></Grid>
-              </Grid>
-            </CardContent>
-          </Card>
+          {bonedata.map((item) => {
+            return (
+              <div>
+                <Card>
+                  <CardContent className="dcard1">
+                    <Grid container>
+                      <Grid item xs={1}></Grid>
+                      <Grid item xs={2}>
+                        {" "}
+                        <Avatar
+                          alt="Remy Sharp"
+                          src="./img/Doctor1.webp"
+                          sx={{ width: 150, height: 150 }}
+                        />
+                      </Grid>
+                      <Grid item xs={8}>
+                        <h4>{item.name}</h4>
+                        <h4>{item.edu}</h4>
+                        <h3>{item.exp}</h3>
+                        <p>{item.details}</p>
+                        <Link to="/bone/newappointment">
+                          <Button variant="contained">Appointment</Button>
+                        </Link>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
         </Grid>
       </Grid>
     </div>

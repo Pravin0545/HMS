@@ -2,28 +2,29 @@ import React from "react";
 import { Card, CardContent, Grid } from "@mui/material";
 
 export const RoomAllocateDetails = () => {
+  const result = JSON.parse(localStorage.getItem("roomdata"));
   return (
     <div>
       <h1 className="roomal">RoomAllocateDetails</h1>
-      {/* <h2 style={{textAlign:"center",color:"blue",margin:"20px"}}>Details</h2> */}
-      <Card className="patientdetails1">
-        <CardContent className="patientdetails">
-          <Grid container>
-            <Grid item xs={3}>
-              <h4>Pravin Chittoji</h4>
-            </Grid>
-            <Grid item xs={3}>
-              <h4>Bone and Joint</h4>
-            </Grid>
-            <Grid item xs={3}>
-              <h4>DR.M.K.Gandhi</h4>
-            </Grid>
-            <Grid item xs={3}>
-              <h4>Room.NO 103</h4>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+      <table className="table">
+        <tr>
+          <th>Name</th>
+          <th>Treatment</th>
+          <th>Doctor</th>
+          <th>Room No</th>
+         
+        </tr>
+        {result.map((item) => {
+          return (
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.treatment}</td>
+              <td>{item.doctorname}</td>
+              <td>{item.roomno}</td>
+            </tr>
+          );
+        })}
+      </table>
     </div>
   );
 };

@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import { Tabs, Tab } from "@mui/material";
 import { NewAppointment } from "./NewAppointment";
 import { Details } from "./Details";
 
 export const PatientsDetails = () => {
-  const [pdata, setPdata] = useState();
-  localStorage.setItem("userdata", JSON.stringify(pdata));
+  const [data, setData] = useState([]);
+
+  localStorage.setItem("userdata", JSON.stringify(data));
+
+  const handlesubmit = (user) => {
+    setData([...data, user]);
+  };
 
   const [val, setVal] = useState("newappointment");
   return (
@@ -18,7 +22,9 @@ export const PatientsDetails = () => {
           <Tab value="details" label="Details" />
         </Tabs>
 
-        {val === "newappointment" && <NewAppointment setPdata={setPdata} />}
+        {val === "newappointment" && (
+          <NewAppointment handlesubmit={handlesubmit} />
+        )}
         {val === "details" && <Details />}
       </div>
     </div>

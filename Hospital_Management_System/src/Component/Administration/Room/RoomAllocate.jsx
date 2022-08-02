@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 
-export const RoomAllocate = () => {
+export const RoomAllocate = ({handlesubmit}) => {
+  const [user,setUser]=useState({})
   return (
     <div>
       <h1 className="roomal">RoomAllocate</h1>
@@ -17,6 +18,7 @@ export const RoomAllocate = () => {
               label="Enter Patient Name"
               type="text"
               required
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
             ></TextField>
           </Grid>
           <Grid item xs={1}></Grid>
@@ -30,6 +32,8 @@ export const RoomAllocate = () => {
               label="Enter Treatment "
               type="text"
               required
+              
+              onChange={(e) => setUser({ ...user, treatment: e.target.value })}
             ></TextField>
           </Grid>
           <Grid item xs={1}></Grid>
@@ -46,6 +50,8 @@ export const RoomAllocate = () => {
               label="Enter Doctor Name"
               type="text"
               required
+              
+              onChange={(e) => setUser({ ...user, doctorname: e.target.value })}
             ></TextField>
           </Grid>
           <Grid item xs={1}></Grid>
@@ -58,6 +64,8 @@ export const RoomAllocate = () => {
               label="Enter Room NO"
               type="text"
               required
+              
+              onChange={(e) => setUser({ ...user, roomno: e.target.value })}
             ></TextField>
           </Grid>
           <Grid item xs={1}></Grid>
@@ -67,7 +75,7 @@ export const RoomAllocate = () => {
           <br />
           <Grid item xs={5}></Grid>
           <Grid item xs={2}>
-            <Button variant="contained" color="success">
+            <Button variant="contained" color="success" onClick={() => handlesubmit(user)}>
               Submit
             </Button>
           </Grid>

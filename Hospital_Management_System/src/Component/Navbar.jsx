@@ -9,7 +9,6 @@ export const Navbar = () => {
       <Card className="navbar">
         <CardContent>
           <Grid container>
-            <Grid item xs={1}></Grid>
             <Grid item xs={1}>
               <Avatar
                 alt="Hospital LOGO"
@@ -19,6 +18,9 @@ export const Navbar = () => {
               />
             </Grid>
             <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <h1>HMS</h1>
+            </Grid>
             <Grid item xs={2}>
               <Link to="/">Home</Link>
             </Grid>
