@@ -10,7 +10,7 @@ export const Contactus = () => {
   return (
     <div>
       <div>
-        <h1 className="admin">Contact Us</h1>
+        {/* <h1 className="admin">Contact Us</h1> */}
         <Grid container>
           <Grid item xs={12}>
             <Card>

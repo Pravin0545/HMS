@@ -9,16 +9,8 @@ export const NewAppointment = ({ handlesubmit }) => {
   if (handlesubmit === true) {
     setIssuccess(true);
   }
-
-  // localStorage.setItem("userdata",JSON.stringify(data))
-
-  // setPdata(data);
-  // console.log(data);
-  // console.log(user);
-
   return (
     <div>
-      <h2 className="admin">Registration</h2>
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>

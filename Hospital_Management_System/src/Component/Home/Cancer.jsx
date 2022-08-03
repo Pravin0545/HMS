@@ -38,11 +38,18 @@ export const Cancer = () => {
                       </Grid>
                       <Grid item xs={8}>
                         <h4>{item.name}</h4>
+                        <br />
                         <h4>{item.edu}</h4>
+                        <br />
                         <h3>{item.exp}</h3>
+                        <br />
                         <p>{item.details}</p>
+                        <br />
+                        <br />
                         <Link to="/bone/newappointment">
-                          <Button variant="contained">Appointment</Button>
+                          <Button variant="contained" color="secondary">
+                            Registration
+                          </Button>
                         </Link>
                       </Grid>
                     </Grid>

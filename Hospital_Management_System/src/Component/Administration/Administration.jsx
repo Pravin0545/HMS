@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "@mui/material";
-import { Payment } from "./payment/Payment";
 import { PatientsDetails } from "./Patient/PatientsDetails";
 import { Room } from "./Room/Room";
+import { PaymentParent } from "./payment/PaymentParent";
+
 export const Administration = () => {
   const [val, setVal] = useState("PatientDetails");
-
   const [data, setData] = useState([]);
 
   localStorage.setItem("userdata", JSON.stringify(data));
 
+  console.log(data);
   const handlesubmit = (user) => {
     setData([...data, user]);
   };
+
   return (
     <div className="administration">
       <h1 className="admin">Administration</h1>
 
-      {/* 
-      <Link to="/administration/patientdetails">PatientDetails</Link>
-      <Link to="/administration/room">Hospitalization</Link>
-      <Link to="/administration/payment">Payment</Link> */}
       <Tabs value={val} onChange={(e, value) => setVal(value)}>
         <Tab value="PatientDetails" label="PatientDetails" />
         <Tab value="hospitalization" label="Hospitalization" />
@@ -31,7 +29,7 @@ export const Administration = () => {
         <PatientsDetails handlesubmit={handlesubmit} />
       )}
       {val === "hospitalization" && <Room data={data} />}
-      {val === "payment" && <Payment data={data} />}
+      {val === "payment" && <PaymentParent data={data} />}
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const Bone = () => {
   const [overview, setOverview] = useState(Overviewbone);
   return (
     <div>
-      <h1 className="admin">Bone</h1>
+      <h1 className="admin">Bone and Joints</h1>
       <h1>Overview</h1>
       <br />
       <br />
@@ -37,11 +37,18 @@ export const Bone = () => {
                       </Grid>
                       <Grid item xs={8}>
                         <h4>{item.name}</h4>
+                        <br />
                         <h4>{item.edu}</h4>
+                        <br />
                         <h3>{item.exp}</h3>
+                        <br />
                         <p>{item.details}</p>
+                        <br />
+                        <br />
                         <Link to="/bone/newappointment">
-                          <Button variant="contained">Appointment</Button>
+                          <Button variant="contained" color="secondary">
+                            Registration
+                          </Button>
                         </Link>
                       </Grid>
                     </Grid>

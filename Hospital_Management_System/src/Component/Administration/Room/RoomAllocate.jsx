@@ -27,7 +27,6 @@ export const RoomAllocate = ({ data }) => {
     } else {
       setTre(bonedata);
     }
-    
   };
 
   console.log(heartdata);
@@ -44,7 +43,7 @@ export const RoomAllocate = ({ data }) => {
             <Select
               value={user.name}
               label="Paitent Name"
-              onChange={(e, value) =>
+              onChange={(e) =>
                 setRoomDetails({ ...roomdetails, Paitentname: e.target.value })
               }
             >

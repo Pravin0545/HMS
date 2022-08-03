@@ -12,7 +12,7 @@ export const Room = ({ data }) => {
     <div>
       <Tabs value={val} onChange={(e, value) => setVal(value)}>
         <Tab value="roomallocation" label="Room Allocation" />
-        <Tab value="roomallocatiomdetails" label="Room Allocatiom Details" />
+        <Tab value="roomallocatiomdetails" label="Room Allocation Details" />
       </Tabs>
 
       {val === "roomallocation" && <RoomAllocate data={data} />}
