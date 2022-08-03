@@ -6,23 +6,22 @@ import { heartdata } from "../../Home/HearttData";
 import { bonedata } from "../../Home/BoneData";
 import { cancerdata } from "../../Home/CancerData";
 
-export const RoomAllocate = ({ data, treatment }) => {
+export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
   const [user, setUser] = useState([]);
   const [drname, setDrname] = useState([]);
   const [ptreatment, setPtreatment] = useState([]);
-  // const room = [101, 102, 103, 104];
 
   const [roomdetails, setRoomDetails] = useState({});
 
-  console.log(roomdetails);
+  // console.log(roomdetails);
   useEffect(() => {
     setUser(data);
     setPtreatment(treatment);
   }, []);
 
-  // console.log(ptreatment);
-  const handleSubmit = () => {};
   const handletreatment = (e) => {
+    setRoomDetails({ ...roomdetails, treat: e.target.value });
+
     if (e.target.value === "Cancer") {
       setDrname(cancerdata);
     } else if (e.target.value === "Heart Transplant") {
@@ -32,7 +31,6 @@ export const RoomAllocate = ({ data, treatment }) => {
     }
   };
 
-  // console.log(heartdata);
   return (
     <div>
       <h1 className="roomal">RoomAllocate</h1>
@@ -47,7 +45,7 @@ export const RoomAllocate = ({ data, treatment }) => {
               value={user.name}
               label="Paitent Name"
               onChange={(e) =>
-                setRoomDetails({ ...roomdetails, Paitentname: e.target.value })
+                setRoomDetails({ ...roomdetails, paitentname: e.target.value })
               }
             >
               {user.map((item) => {
@@ -61,13 +59,7 @@ export const RoomAllocate = ({ data, treatment }) => {
             <h3>Treatment:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <Select
-              label="Treatment"
-              onChange={handletreatment}
-              // onChange={(e, value) =>
-              //   setRoomDetails({ ...roomdetails, Paitentname: e.target.value })
-              // }
-            >
+            <Select label="Treatment" onChange={handletreatment}>
               {ptreatment.map((item) => {
                 return (
                   <MenuItem value={item.treatment}>{item.treatment}</MenuItem>
@@ -84,7 +76,13 @@ export const RoomAllocate = ({ data, treatment }) => {
             <h3>Doctor Name:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <Select label="Doctor Name">
+            <Select
+              label="Doctor Name"
+              value={drname.name}
+              onChange={(e) =>
+                setRoomDetails({ ...roomdetails, drname: e.target.value })
+              }
+            >
               {drname.map((item) => {
                 return <MenuItem value={item.name}>{item.name}</MenuItem>;
               })}
@@ -97,7 +95,8 @@ export const RoomAllocate = ({ data, treatment }) => {
           <Grid item xs={2.5}>
             <Select
               label="Doctor Name"
-              onchange={(e) =>
+              value={ptreatment.roomno}
+              onChange={(e) =>
                 setRoomDetails({ ...roomdetails, roomno: e.target.value })
               }
             >
@@ -116,7 +115,7 @@ export const RoomAllocate = ({ data, treatment }) => {
             <Button
               variant="contained"
               color="success"
-              onClick={() => handleSubmit()}
+              onClick={() => handleSubmitroom(roomdetails)}
             >
               Submit
             </Button>

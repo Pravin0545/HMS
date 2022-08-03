@@ -7,20 +7,26 @@ import { PaymentParent } from "./payment/PaymentParent";
 export const Administration = () => {
   const [val, setVal] = useState("PatientDetails");
   const [data, setData] = useState([]);
+  const [roomdata, setRoomData] = useState([]);
 
   localStorage.setItem("userdata", JSON.stringify(data));
+  localStorage.setItem("userroom", JSON.stringify(roomdata));
 
-  console.log(data);
+  // console.log(roomdata);
 
   const treatment = [
-    { treatment: "Cancer",roomno:"101" },
-    { treatment: "Heart Transplant",roomno:"102" },
-    { treatment: "Bones and Joints",roomno:"103" },
-
+    { treatment: "Cancer", roomno: "101" },
+    { treatment: "Heart Transplant", roomno: "102" },
+    { treatment: "Bones and Joints", roomno: "103" },
   ];
+
+  const handleSubmitroom = (roomdetails) => {
+    setRoomData([...roomdata, roomdetails]);
+  };
 
   const handlesubmit = (user) => {
     setData([...data, user]);
+    
   };
 
   return (
@@ -36,7 +42,13 @@ export const Administration = () => {
       {val === "PatientDetails" && (
         <PatientsDetails handlesubmit={handlesubmit} />
       )}
-      {val === "hospitalization" && <Room data={data} treatment={treatment} />}
+      {val === "hospitalization" && (
+        <Room
+          data={data}
+          treatment={treatment}
+          handleSubmitroom={handleSubmitroom}
+        />
+      )}
       {val === "payment" && <PaymentParent data={data} />}
     </div>
   );

@@ -4,6 +4,7 @@ import Alert from "@mui/material/Alert";
 
 export const NewAppointment = ({ handlesubmit }) => {
   const [user, setUser] = useState({});
+  const [pid, setPid] = useState(100);
   const [issuccess, setIssuccess] = useState(false);
 
   if (handlesubmit === true) {
