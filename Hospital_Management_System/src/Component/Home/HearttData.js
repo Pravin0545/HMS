@@ -1,33 +1,32 @@
-export const data = [
+export const heartdata = [
   {
-    name: "Dr.M.K.Gandhi",
+    name: "Dr.M.K.Gandhi (Heart)",
     edu: "MD.DM(Heart)",
     exp: "12 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.M.K.Sinha",
+    name: "Dr.M.K.Sinha (Heart)",
     edu: "MD.DM(Heart)",
     exp: "10 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.B.M.Nerli",
+    name: "Dr.B.M.Nerli (Heart)",
     edu: "MD.DM(Heart)",
     exp: "15 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.P.R.Chittoji",
+    name: "Dr.P.R.Chittoji (Heart)",
     edu: "MD.DM(Heart)",
     exp: "15 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
 ];
-
 
 export const Overviewheart = ` A heart transplant is an operation in which a failing heart is replaced with a healthier donor heart. Heart transplant is a treatment that's usually reserved for people whose condition hasn't improved enough with medications or other surgeries. While a heart transplant is a major operation, your chance of survival is good with appropriate follow-up care.`;

@@ -1,4 +1,4 @@
-export const data = [
+export const bonedata = [
   {
     name: "Dr.M.K.Gandhi",
     edu: "MD.DM(Bone and Joints)",

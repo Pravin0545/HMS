@@ -1,8 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { heartdata } from "../../Home/HearttData";
+import { bonedata } from "../../Home/BoneData";
+import { cancerdata } from "../../Home/CancerData";
 
-export const RoomAllocate = ({handlesubmit}) => {
-  const [user,setUser]=useState({})
+export const RoomAllocate = ({ data }) => {
+  const [user, setUser] = useState([]);
+  const [tre, setTre] = useState([]);
+  const treatment = ["Cancer", "Heart Transplant", "Bones and Joints"];
+  const room = [101, 102, 103, 104];
+
+  const [roomdetails, setRoomDetails] = useState({});
+
+  useEffect(() => {
+    setUser(data);
+  }, []);
+
+  const handleSubmit = () => {};
+  const handletreatment = (e) => {
+    if (e.target.value === "Cancer") {
+      setTre(cancerdata);
+    } else if (e.target.value === "Heart Transplant") {
+      setTre(heartdata);
+    } else {
+      setTre(bonedata);
+    }
+    
+  };
+
+  console.log(heartdata);
   return (
     <div>
       <h1 className="roomal">RoomAllocate</h1>
@@ -13,13 +41,17 @@ export const RoomAllocate = ({handlesubmit}) => {
             <h3>Patient Name:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <TextField
-              variant="outlined"
-              label="Enter Patient Name"
-              type="text"
-              required
-              onChange={(e) => setUser({ ...user, name: e.target.value })}
-            ></TextField>
+            <Select
+              value={user.name}
+              label="Paitent Name"
+              onChange={(e, value) =>
+                setRoomDetails({ ...roomdetails, Paitentname: e.target.value })
+              }
+            >
+              {user.map((item) => {
+                return <MenuItem value={item.name}>{item.name}</MenuItem>;
+              })}
+            </Select>
           </Grid>
           <Grid item xs={1}></Grid>
 
@@ -27,14 +59,17 @@ export const RoomAllocate = ({handlesubmit}) => {
             <h3>Treatment:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <TextField
-              variant="outlined"
-              label="Enter Treatment "
-              type="text"
-              required
-              
-              onChange={(e) => setUser({ ...user, treatment: e.target.value })}
-            ></TextField>
+            <Select
+              label="Treatment"
+              onChange={handletreatment}
+              // onChange={(e, value) =>
+              //   setRoomDetails({ ...roomdetails, Paitentname: e.target.value })
+              // }
+            >
+              {treatment.map((item) => {
+                return <MenuItem value={item}>{item}</MenuItem>;
+              })}
+            </Select>
           </Grid>
           <Grid item xs={1}></Grid>
           <br />
@@ -45,28 +80,22 @@ export const RoomAllocate = ({handlesubmit}) => {
             <h3>Doctor Name:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <TextField
-              variant="outlined"
-              label="Enter Doctor Name"
-              type="text"
-              required
-              
-              onChange={(e) => setUser({ ...user, doctorname: e.target.value })}
-            ></TextField>
+            <Select value={user.doctorname} label="Doctor Name">
+              {tre.map((item) => {
+                return <MenuItem value={item.name}>{item.name}</MenuItem>;
+              })}
+            </Select>
           </Grid>
           <Grid item xs={1}></Grid>
           <Grid item xs={1.5}>
             <h3>Room NO:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <TextField
-              variant="outlined"
-              label="Enter Room NO"
-              type="text"
-              required
-              
-              onChange={(e) => setUser({ ...user, roomno: e.target.value })}
-            ></TextField>
+            <Select value={user.roomno} label="Doctor Name">
+              {room.map((item) => {
+                return <MenuItem value={item}>{item}</MenuItem>;
+              })}
+            </Select>
           </Grid>
           <Grid item xs={1}></Grid>
           <br />
@@ -75,7 +104,11 @@ export const RoomAllocate = ({handlesubmit}) => {
           <br />
           <Grid item xs={5}></Grid>
           <Grid item xs={2}>
-            <Button variant="contained" color="success" onClick={() => handlesubmit(user)}>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => handleSubmit()}
+            >
               Submit
             </Button>
           </Grid>

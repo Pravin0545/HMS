@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Grid, Card, CardContent, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
-import { data, Overviewheart } from "./HearttData";
+import { heartdata, Overviewheart } from "./HearttData";
 
 export const HeartT = () => {
-  const [heartdata, setHeartData] = useState(data);
+  const [data, setData] = useState(heartdata);
   const [overview, setOverview] = useState(Overviewheart);
 
   return (
@@ -21,7 +21,7 @@ export const HeartT = () => {
       <br />
       <Grid container>
         <Grid item xs={12}>
-          {heartdata.map((item) => {
+          {data.map((item) => {
             return (
               <div>
                 <Card>

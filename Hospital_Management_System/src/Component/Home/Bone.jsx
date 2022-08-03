@@ -3,10 +3,10 @@ import { Grid, Card, CardContent, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
 
-import { data, Overviewbone } from "./BoneData";
+import { bonedata, Overviewbone } from "./BoneData";
 
 export const Bone = () => {
-  const [bonedata, setBoneData] = useState(data);
+  const [data, setData] = useState(bonedata);
   const [overview, setOverview] = useState(Overviewbone);
   return (
     <div>
@@ -20,7 +20,7 @@ export const Bone = () => {
       <br />
       <Grid container>
         <Grid item xs={12}>
-          {bonedata.map((item) => {
+          {data.map((item) => {
             return (
               <div>
                 <Card>

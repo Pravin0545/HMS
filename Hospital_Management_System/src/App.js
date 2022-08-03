@@ -19,13 +19,6 @@ import { Cancer } from "./Component/Home/Cancer";
 import { Bone } from "./Component/Home/Bone";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  localStorage.setItem("userdata", JSON.stringify(data));
-
-  const handlesubmit = (user) => {
-    setData([...data, user]);
-  };
   return (
     <div className="App">
       <BrowserRouter>
@@ -35,18 +28,18 @@ function App() {
           <Route path="/heartt" element={<HeartT />} />
           <Route
             path="/heartt/newappointment"
-            element={<NewAppointment handlesubmit={handlesubmit} />}
+            element={<NewAppointment  />}
           />
           <Route path="/cancer" element={<Cancer />} />
           <Route
             path="/cancer/newappointment"
-            element={<NewAppointment handlesubmit={handlesubmit} />}
+            element={<NewAppointment />}
           />
           {/* <Route path="/cancer/registration" element={<Registration />} /> */}
           <Route path="/bone" element={<Bone />} />
           <Route
             path="/bone/newappointment"
-            element={<NewAppointment handlesubmit={handlesubmit} />}
+            element={<NewAppointment />}
           />
           {/* <Route path="/bone/registration" element={<Registration />} /> */}
           <Route path="/login" element={<Login />} />
@@ -59,7 +52,7 @@ function App() {
           />
           <Route
             path="/administration/patientdetails/newappointment"
-            element={<NewAppointment handlesubmit={handlesubmit} />}
+            element={<NewAppointment  />}
           />
           <Route
             path="/administration/patientdetails/details"

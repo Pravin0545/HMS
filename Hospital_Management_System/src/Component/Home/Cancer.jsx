@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Grid, Card, CardContent, Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
-import { data, Overviewcancer } from "./CancerData";
+import { cancerdata, Overviewcancer } from "./CancerData";
 
 export const Cancer = () => {
-  const [cancerdata, setCancerData] = useState(data);
+  const [data, setData] = useState(cancerdata);
   const [overview, setOverview] = useState(Overviewcancer);
 
   return (
@@ -21,7 +21,7 @@ export const Cancer = () => {
       <br />
       <Grid container>
         <Grid item xs={12}>
-          {cancerdata.map((item) => {
+          {data.map((item) => {
             return (
               <div>
                 <Card>

@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
+import Alert from "@mui/material/Alert";
 
 export const NewAppointment = ({ handlesubmit }) => {
   const [user, setUser] = useState({});
+  const [issuccess, setIssuccess] = useState(false);
+
+  if (handlesubmit === true) {
+    setIssuccess(true);
+  }
 
   // localStorage.setItem("userdata",JSON.stringify(data))
 
   // setPdata(data);
   // console.log(data);
-  console.log(user);
+  // console.log(user);
 
   return (
     <div>
@@ -135,6 +141,13 @@ export const NewAppointment = ({ handlesubmit }) => {
             <Button variant="contained" onClick={() => handlesubmit(user)}>
               SUBMIT
             </Button>
+          </Grid>
+          <Grid item xs={12}>
+            {issuccess && (
+              <Alert severity="success">
+                This is a success alert — check it out!
+              </Alert>
+            )}
           </Grid>
         </Grid>
       </div>
