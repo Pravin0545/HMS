@@ -7,7 +7,7 @@ export const Administration = () => {
       <h1 className="admin">Administration</h1>
 
       <Link to="/administration/patientdetails">PatientDetails</Link>
-      <Link to="/administration/room">Room</Link>
+      <Link to="/administration/room">Hospitalization</Link>
       <Link to="/administration/payment">Payment</Link>
     </div>
   );

@@ -8,11 +8,11 @@ export const NewAppointment = ({ handlesubmit }) => {
 
   // setPdata(data);
   // console.log(data);
-  // console.log(user);
+  console.log(user);
 
   return (
     <div>
-      <h2 className="admin">NewAppointment</h2>
+      <h2 className="admin">Registration</h2>
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>

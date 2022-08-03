@@ -1,7 +1,7 @@
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Administration } from "./Component/Administration/Administration";
 import { NewAppointment } from "./Component/Administration/Patient/NewAppointment";
-// import { TodaysAppointment } from "./Component/Administration/Patient/TodaysAppointment";
 import { Details } from "./Component/Administration/Patient/Details";
 import { PatientsDetails } from "./Component/Administration/Patient/PatientsDetails";
 import { Payment } from "./Component/Administration/payment/Payment";
@@ -14,13 +14,18 @@ import { Aboutus } from "./Component/Home/Aboutus";
 import { Login } from "./Component/Home/Login";
 import { Contactus } from "./Component/Home/Contactus";
 import { Navbar } from "./Component/Navbar";
-// import { Footer } from "./Component/Home/Footer";
 import { HeartT } from "./Component/Home/HeartT";
 import { Cancer } from "./Component/Home/Cancer";
 import { Bone } from "./Component/Home/Bone";
-// import { Registration } from "./Component/Home/Registration";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  localStorage.setItem("userdata", JSON.stringify(data));
+
+  const handlesubmit = (user) => {
+    setData([...data, user]);
+  };
   return (
     <div className="App">
       <BrowserRouter>
@@ -28,12 +33,21 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/heartt" element={<HeartT />} />
-          <Route path="/heartt/newappointment" element={<NewAppointment />} />
+          <Route
+            path="/heartt/newappointment"
+            element={<NewAppointment handlesubmit={handlesubmit} />}
+          />
           <Route path="/cancer" element={<Cancer />} />
-          <Route path="/cancer/newappointment" element={<NewAppointment />} />
+          <Route
+            path="/cancer/newappointment"
+            element={<NewAppointment handlesubmit={handlesubmit} />}
+          />
           {/* <Route path="/cancer/registration" element={<Registration />} /> */}
           <Route path="/bone" element={<Bone />} />
-          <Route path="/bone/newappointment" element={<NewAppointment />} />
+          <Route
+            path="/bone/newappointment"
+            element={<NewAppointment handlesubmit={handlesubmit} />}
+          />
           {/* <Route path="/bone/registration" element={<Registration />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/login/administration" element={<Administration />} />
@@ -45,15 +59,7 @@ function App() {
           />
           <Route
             path="/administration/patientdetails/newappointment"
-            element={<NewAppointment />}
-          />
-          {/* <Route
-            path="/administration/patientdetails/todaysappointment"
-            element={<TodaysAppointment />}
-          /> */}
-          <Route
-            path="/administration/patientdetails/newappointment"
-            element={<NewAppointment />}
+            element={<NewAppointment handlesubmit={handlesubmit} />}
           />
           <Route
             path="/administration/patientdetails/details"
