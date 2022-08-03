@@ -1,27 +1,27 @@
 export const cancerdata = [
   {
-    name: "Dr.M.K.Gandhi",
+    name: "Dr.M.K.Gandhi(Cancer)",
     edu: "MD.DM(Cancer)",
     exp: "12 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.M.K.Sinha",
+    name: "Dr.M.K.Sinha(Cancer)",
     edu: "MD.DM(Cancer)",
     exp: "10 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.B.M.Nerli",
+    name: "Dr.B.M.Nerli(Cancer)",
     edu: "MD.DM(Cancer)",
     exp: "15 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.P.R.Chittoji",
+    name: "Dr.P.R.Chittoji(Cancer)",
     edu: "MD.DM(Cancer)",
     exp: "15 Years Experience",
     details:

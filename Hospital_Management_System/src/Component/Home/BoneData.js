@@ -1,27 +1,27 @@
 export const bonedata = [
   {
-    name: "Dr.M.K.Gandhi",
+    name: "Dr.M.K.Gandhi(Bone and Joints",
     edu: "MD.DM(Bone and Joints)",
     exp: "12 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.M.K.Sinha",
+    name: "Dr.M.K.Sinha(Bone and Joints",
     edu: "MD.DM(Bone and Joints)",
     exp: "10 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.B.M.Nerli",
+    name: "Dr.B.M.Nerli(Bone and Joints",
     edu: "MD.DM(Bone and Joints)",
     exp: "15 Years Experience",
     details:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur similique deserunt est sequi accusantium voluptatibus ut recusandae! Repellendus, voluptatum nemo!",
   },
   {
-    name: "Dr.P.R.Chittoji",
+    name: "Dr.P.R.Chittoji(Bone and Joints",
     edu: "MD.DM(Bone and Joints)",
     exp: "15 Years Experience",
     details:

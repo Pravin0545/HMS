@@ -5,7 +5,7 @@ import { Tabs, Tab } from "@mui/material";
 import { RoomAllocate } from "./RoomAllocate";
 import { RoomAllocateDetails } from "./RoomAllocateDetails";
 
-export const Room = ({ data }) => {
+export const Room = ({ data, treatment }) => {
   const [val, setVal] = useState("roomallocation");
 
   return (
@@ -15,7 +15,9 @@ export const Room = ({ data }) => {
         <Tab value="roomallocatiomdetails" label="Room Allocation Details" />
       </Tabs>
 
-      {val === "roomallocation" && <RoomAllocate data={data} />}
+      {val === "roomallocation" && (
+        <RoomAllocate data={data} treatment={treatment} />
+      )}
       {val === "roomallocatiomdetails" && <RoomAllocateDetails data={data} />}
     </div>
   );

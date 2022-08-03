@@ -11,6 +11,14 @@ export const Administration = () => {
   localStorage.setItem("userdata", JSON.stringify(data));
 
   console.log(data);
+
+  const treatment = [
+    { treatment: "Cancer",roomno:"101" },
+    { treatment: "Heart Transplant",roomno:"102" },
+    { treatment: "Bones and Joints",roomno:"103" },
+
+  ];
+
   const handlesubmit = (user) => {
     setData([...data, user]);
   };
@@ -28,7 +36,7 @@ export const Administration = () => {
       {val === "PatientDetails" && (
         <PatientsDetails handlesubmit={handlesubmit} />
       )}
-      {val === "hospitalization" && <Room data={data} />}
+      {val === "hospitalization" && <Room data={data} treatment={treatment} />}
       {val === "payment" && <PaymentParent data={data} />}
     </div>
   );

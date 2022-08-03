@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { heartdata } from "../../Home/HearttData";
 import { bonedata } from "../../Home/BoneData";
 import { cancerdata } from "../../Home/CancerData";
 
-export const RoomAllocate = ({ data }) => {
+export const RoomAllocate = ({ data, treatment }) => {
   const [user, setUser] = useState([]);
-  const [tre, setTre] = useState([]);
-  const treatment = ["Cancer", "Heart Transplant", "Bones and Joints"];
-  const room = [101, 102, 103, 104];
+  const [drname, setDrname] = useState([]);
+  const [ptreatment, setPtreatment] = useState([]);
+  // const room = [101, 102, 103, 104];
 
   const [roomdetails, setRoomDetails] = useState({});
 
+  console.log(roomdetails);
   useEffect(() => {
     setUser(data);
+    setPtreatment(treatment);
   }, []);
 
+  // console.log(ptreatment);
   const handleSubmit = () => {};
   const handletreatment = (e) => {
     if (e.target.value === "Cancer") {
-      setTre(cancerdata);
+      setDrname(cancerdata);
     } else if (e.target.value === "Heart Transplant") {
-      setTre(heartdata);
+      setDrname(heartdata);
     } else {
-      setTre(bonedata);
+      setDrname(bonedata);
     }
   };
 
-  console.log(heartdata);
+  // console.log(heartdata);
   return (
     <div>
       <h1 className="roomal">RoomAllocate</h1>
@@ -65,8 +68,10 @@ export const RoomAllocate = ({ data }) => {
               //   setRoomDetails({ ...roomdetails, Paitentname: e.target.value })
               // }
             >
-              {treatment.map((item) => {
-                return <MenuItem value={item}>{item}</MenuItem>;
+              {ptreatment.map((item) => {
+                return (
+                  <MenuItem value={item.treatment}>{item.treatment}</MenuItem>
+                );
               })}
             </Select>
           </Grid>
@@ -79,8 +84,8 @@ export const RoomAllocate = ({ data }) => {
             <h3>Doctor Name:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <Select value={user.doctorname} label="Doctor Name">
-              {tre.map((item) => {
+            <Select label="Doctor Name">
+              {drname.map((item) => {
                 return <MenuItem value={item.name}>{item.name}</MenuItem>;
               })}
             </Select>
@@ -90,9 +95,14 @@ export const RoomAllocate = ({ data }) => {
             <h3>Room NO:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <Select value={user.roomno} label="Doctor Name">
-              {room.map((item) => {
-                return <MenuItem value={item}>{item}</MenuItem>;
+            <Select
+              label="Doctor Name"
+              onchange={(e) =>
+                setRoomDetails({ ...roomdetails, roomno: e.target.value })
+              }
+            >
+              {ptreatment.map((item) => {
+                return <MenuItem value={item.roomno}>{item.roomno}</MenuItem>;
               })}
             </Select>
           </Grid>
