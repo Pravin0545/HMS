@@ -131,7 +131,7 @@ export const NewAppointment = ({ handlesubmit }) => {
           </Grid>
           <Grid item xs={2}>
             <Button variant="contained" onClick={() => handlesubmit(user)}>
-              SUBMIT
+              Register
             </Button>
           </Grid>
           <Grid item xs={12}>
