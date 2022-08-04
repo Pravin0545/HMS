@@ -5,7 +5,7 @@ export const RoomAllocateDetails = () => {
   const result = JSON.parse(localStorage.getItem("userroom"));
   return (
     <div>
-      <h1 className="roomal">RoomAllocateDetails</h1>
+      {/* <h1 className="roomal">RoomAllocateDetails</h1> */}
       <table className="table">
         <tr>
           <th>SR.No</th>

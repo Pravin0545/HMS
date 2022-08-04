@@ -4,7 +4,7 @@ import { Grid, TextField, Button } from "@mui/material";
 export const Payment = () => {
   return (
     <div>
-      <h1 className="roomal">Payment</h1>
+      {/* <h1 className="roomal">Payment</h1> */}
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>

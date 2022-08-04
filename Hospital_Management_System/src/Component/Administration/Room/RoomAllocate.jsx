@@ -33,7 +33,7 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
 
   return (
     <div>
-      <h1 className="roomal">RoomAllocate</h1>
+      {/* <h1 className="roomal">RoomAllocate</h1> */}
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>
