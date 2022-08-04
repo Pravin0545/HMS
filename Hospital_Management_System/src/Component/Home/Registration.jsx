@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
+import Alert from "@mui/material/Alert";
 
 export const Registration = () => {
   const [user, setUser] = useState({});
-  const [data, setData] = useState([]);
+  const [userreg, setUserreg] = useState([]);
 
-  sessionStorage.setItem("userdata", JSON.stringify(data));
-  // console.log(user);
+  const result = [userreg];
 
-  const handlesubmit = () => {
-    setData([...data, user]);
-    console.log(data);
+  localStorage.setItem("userreg", JSON.stringify(userreg));
+
+  const handleregsubmit = () => {
+    setUserreg(user);
   };
+  console.log(userreg);
   return (
     <div>
-      <h2 className="admin">NewAppointment</h2>
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>
@@ -76,6 +77,34 @@ export const Registration = () => {
         <Grid container>
           <Grid item xs={2}></Grid>
           <Grid item xs={1.5}>
+            <h3>Enter Aadhar:</h3>
+          </Grid>
+          <Grid item xs={2.5}>
+            <TextField
+              variant="outlined"
+              label="Enter Aadhar Number"
+              type="email"
+              required
+              onChange={(e) => setUser({ ...user, aadhar: e.target.value })}
+            ></TextField>
+          </Grid>
+          <Grid item xs={1.5}>
+            <h3>Appointment Date:</h3>
+          </Grid>
+          <Grid item xs={2.1}>
+            <TextField
+              variant="outlined"
+              type="date"
+              onChange={(e) => setUser({ ...user, date: e.target.value })}
+              fullWidth
+            ></TextField>
+          </Grid>
+        </Grid>
+        <br />
+        <br />
+        <Grid container>
+          <Grid item xs={2}></Grid>
+          <Grid item xs={1.5}>
             <h3>Enter Address</h3>
           </Grid>
           <Grid item xs={6.1}>
@@ -106,11 +135,39 @@ export const Registration = () => {
             <Button variant="contained">CANCEL</Button>
           </Grid>
           <Grid item xs={2}>
-            <Button variant="contained" onClick={() => handlesubmit()}>
-              SUBMIT
+            <Button variant="contained" onClick={() => handleregsubmit()}>
+              Register
             </Button>
           </Grid>
         </Grid>
+      </div>
+      <div>
+        <table className="table">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Mobile NO</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Address</th>
+            <th>Aadhar No</th>
+            <th>Date Of Appointment</th>
+          </tr>
+          {result.map((item, index) => {
+            return (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{item.name}</td>
+                <td>{item.number}</td>
+                <td>{item.email}</td>
+                <td>{item.dob}</td>
+                <td>{item.address}</td>
+                <td>{item.aadhar}</td>
+                <td>{item.date}</td>
+              </tr>
+            );
+          })}
+        </table>
       </div>
     </div>
   );

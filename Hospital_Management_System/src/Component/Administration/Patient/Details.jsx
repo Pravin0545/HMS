@@ -2,6 +2,9 @@ import React from "react";
 
 export const Details = () => {
   const result = JSON.parse(localStorage.getItem("userdata"));
+  const result1 = JSON.parse(localStorage.getItem("userreg"));
+
+  const result2 = [result1];
   console.log(result);
 
   return (
@@ -22,6 +25,20 @@ export const Details = () => {
             return (
               <tr>
                 <td>{index + 101}</td>
+                <td>{item.name}</td>
+                <td>{item.number}</td>
+                <td>{item.email}</td>
+                <td>{item.dob}</td>
+                <td>{item.address}</td>
+                <td>{item.aadhar}</td>
+                <td>{item.date}</td>
+              </tr>
+            );
+          })}
+          {result2.map((item, index) => {
+            return (
+              <tr>
+                <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>{item.number}</td>
                 <td>{item.email}</td>

@@ -46,7 +46,7 @@ export const HeartT = () => {
                         <p>{item.details}</p>
                         <br />
                         <br />
-                        <Link to="/bone/newappointment">
+                        <Link to="/bone/registration">
                           <Button variant="contained" color="secondary">
                             Registration
                           </Button>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, FormControl, InputLabel } from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { heartdata } from "../../Home/HearttData";
@@ -41,17 +41,23 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
             <h3>Patient Name:-</h3>
           </Grid>
           <Grid item xs={2.5}>
-            <Select
-              value={user.name}
-              label="Paitent Name"
-              onChange={(e) =>
-                setRoomDetails({ ...roomdetails, paitentname: e.target.value })
-              }
-            >
-              {user.map((item) => {
-                return <MenuItem value={item.name}>{item.name}</MenuItem>;
-              })}
-            </Select>
+            <FormControl fullWidth>
+              <InputLabel>Paitent Name</InputLabel>
+              <Select
+                value={user.name}
+                label="Paitent Name"
+                onChange={(e) =>
+                  setRoomDetails({
+                    ...roomdetails,
+                    paitentname: e.target.value,
+                  })
+                }
+              >
+                {user.map((item) => {
+                  return <MenuItem value={item.name}>{item.name}</MenuItem>;
+                })}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={1}></Grid>
 
@@ -59,6 +65,8 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
             <h3>Treatment:-</h3>
           </Grid>
           <Grid item xs={2.5}>
+          <FormControl fullWidth>
+              <InputLabel>Treatment</InputLabel>
             <Select label="Treatment" onChange={handletreatment}>
               {ptreatment.map((item) => {
                 return (
@@ -66,6 +74,7 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
                 );
               })}
             </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={1}></Grid>
           <br />
@@ -76,6 +85,8 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
             <h3>Doctor Name:-</h3>
           </Grid>
           <Grid item xs={2.5}>
+          <FormControl fullWidth>
+              <InputLabel>Doctor Name</InputLabel>
             <Select
               label="Doctor Name"
               value={drname.name}
@@ -87,14 +98,17 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
                 return <MenuItem value={item.name}>{item.name}</MenuItem>;
               })}
             </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={1}></Grid>
           <Grid item xs={1.5}>
             <h3>Room NO:-</h3>
           </Grid>
           <Grid item xs={2.5}>
+          <FormControl fullWidth>
+              <InputLabel>Room No</InputLabel>
             <Select
-              label="Doctor Name"
+              label="Room No"
               value={ptreatment.roomno}
               onChange={(e) =>
                 setRoomDetails({ ...roomdetails, roomno: e.target.value })
@@ -104,6 +118,7 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
                 return <MenuItem value={item.roomno}>{item.roomno}</MenuItem>;
               })}
             </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={1}></Grid>
           <br />

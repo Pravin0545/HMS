@@ -8,9 +8,11 @@ export const Administration = () => {
   const [val, setVal] = useState("PatientDetails");
   const [data, setData] = useState([]);
   const [roomdata, setRoomData] = useState([]);
+  const [paydetails,setPaydetails]=useState([])
 
   localStorage.setItem("userdata", JSON.stringify(data));
   localStorage.setItem("userroom", JSON.stringify(roomdata));
+  localStorage.setItem("userpayment", JSON.stringify(paydetails));
 
   // console.log(roomdata);
 
@@ -29,6 +31,10 @@ export const Administration = () => {
     
   };
 
+  const handlepayment=(paymentdata)=>{
+    setPaydetails([...paydetails,paymentdata])
+  }
+console.log(paydetails)
   return (
     <div className="administration">
       <h1 className="admin">Administration</h1>
@@ -49,7 +55,7 @@ export const Administration = () => {
           handleSubmitroom={handleSubmitroom}
         />
       )}
-      {val === "payment" && <PaymentParent data={data} />}
+      {val === "payment" && <PaymentParent handlepayment={handlepayment} data={data} />}
     </div>
   );
 };
