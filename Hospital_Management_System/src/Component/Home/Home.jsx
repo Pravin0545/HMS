@@ -50,7 +50,9 @@ export const Home = () => {
                       The best team of Heart Specialists and Surgeons available
                       24X7
                     </h4>
+                    <br />
                   </Grid>
+
                   <Grid item xs={12}>
                     <Link to="/heartt">
                       <Button variant="contained">View</Button>
@@ -79,6 +81,7 @@ export const Home = () => {
                   <Grid item xs={6}></Grid>
                   <Grid item xs={6}>
                     <h4>World Leaders in Oncology Care.</h4>
+                    <br />
                   </Grid>
                   <Grid item xs={12}>
                     <Link to="/cancer">
@@ -111,6 +114,7 @@ export const Home = () => {
                       World renowned Ortho Specialists performing the latest
                       procedures
                     </h4>
+                    <br />
                   </Grid>
                   <Grid item xs={12}>
                     <Link to="/bone">
