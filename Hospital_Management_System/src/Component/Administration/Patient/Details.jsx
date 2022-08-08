@@ -1,4 +1,11 @@
 import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 export const Details = () => {
   const result = JSON.parse(localStorage.getItem("userdata"));
@@ -9,47 +16,51 @@ export const Details = () => {
 
   return (
     <div>
-      <div>
-        <table className="table">
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Mobile NO</th>
-            <th>Email</th>
-            <th>DOB</th>
-            <th>Address</th>
-            <th>Aadhar No</th>
-            <th>Date Of Appointment</th>
-          </tr>
-          {result.map((item, index) => {
-            return (
-              <tr>
-                <td>{index + 101}</td>
-                <td>{item.name}</td>
-                <td>{item.number}</td>
-                <td>{item.email}</td>
-                <td>{item.dob}</td>
-                <td>{item.address}</td>
-                <td>{item.aadhar}</td>
-                <td>{item.date}</td>
-              </tr>
-            );
-          })}
-          {result2.map((item, index) => {
-            return (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{item.name}</td>
-                <td>{item.number}</td>
-                <td>{item.email}</td>
-                <td>{item.dob}</td>
-                <td>{item.address}</td>
-                <td>{item.aadhar}</td>
-                <td>{item.date}</td>
-              </tr>
-            );
-          })}
-        </table>
+      <div >
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">ID</TableCell>
+                <TableCell align="center">Name</TableCell>
+                <TableCell align="center">Mobile</TableCell>
+                <TableCell align="center">Email</TableCell>
+                <TableCell align="center">DOB</TableCell>
+                <TableCell align="center">Address</TableCell>
+                <TableCell align="center">Aadhar</TableCell>
+                <TableCell align="center">Date Of Appointment</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {result.map((item, index) => (
+                <TableRow>
+                  <TableCell align="center">{index + 101}</TableCell>
+                  <TableCell align="center">{item.name}</TableCell>
+                  <TableCell align="center">{item.number}</TableCell>
+                  <TableCell align="center">{item.email}</TableCell>
+                  <TableCell align="center">{item.dob}</TableCell>
+                  <TableCell align="center">{item.address}</TableCell>
+                  <TableCell align="center">{item.aadhar}</TableCell>
+                  <TableCell align="center">{item.date}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            <TableBody>
+              {result2.map((item, index) => (
+                <TableRow>
+                  <TableCell align="center">{index + 1}</TableCell>
+                  <TableCell align="center">{item.name}</TableCell>
+                  <TableCell align="center">{item.number}</TableCell>
+                  <TableCell align="center">{item.email}</TableCell>
+                  <TableCell align="center">{item.dob}</TableCell>
+                  <TableCell align="center">{item.address}</TableCell>
+                  <TableCell align="center">{item.aadhar}</TableCell>
+                  <TableCell align="center">{item.date}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   );
