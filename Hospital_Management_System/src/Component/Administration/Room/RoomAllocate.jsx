@@ -1,23 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Button, FormControl, InputLabel } from "@mui/material";
+import { Grid, Button, FormControl, InputLabel ,Alert} from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { heartdata } from "../../Home/HearttData";
 import { bonedata } from "../../Home/BoneData";
 import { cancerdata } from "../../Home/CancerData";
+import axios from "axios"
 
-export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
+export const RoomAllocate = ({ treatment }) => {
   const [user, setUser] = useState([]);
   const [drname, setDrname] = useState([]);
   const [ptreatment, setPtreatment] = useState([]);
-
   const [roomdetails, setRoomDetails] = useState({});
+  
+  const [issuccess,setIssuccess]=useState(false)
 
-  // console.log(roomdetails);
+  const getdata=async()=>{
+    const result=await axios.get("http://localhost:4444/registration")
+    setUser(result.data);
+  }
+
   useEffect(() => {
-    setUser(data);
+    getdata()
     setPtreatment(treatment);
   }, []);
+
+  const handlesubmit=async()=>{
+    const url="http://localhost:4444/api/addroomdata"
+    const payload=roomdetails
+    
+    const result=await axios.post(url,payload)
+    if(result.status===200)
+        {setIssuccess(true)
+        }
+  }
+
+  
 
   const handletreatment = (e) => {
     setRoomDetails({ ...roomdetails, treat: e.target.value });
@@ -33,7 +51,6 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
 
   return (
     <div>
-      {/* <h1 className="roomal">RoomAllocate</h1> */}
       <div className="appointmentapplication">
         <Grid container>
           <Grid item xs={2}></Grid>
@@ -130,7 +147,7 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
             <Button
               variant="contained"
               color="success"
-              onClick={() => handleSubmitroom(roomdetails)}
+              onClick={handlesubmit}
             >
               Submit
             </Button>
@@ -140,6 +157,9 @@ export const RoomAllocate = ({ data, treatment, handleSubmitroom }) => {
               Cancel
             </Button>
           </Grid>
+          <Grid item xs={12}>
+                {issuccess && <Alert severity="success">Registration Successfully....!</Alert>}
+            </Grid>
         </Grid>
       </div>
     </div>

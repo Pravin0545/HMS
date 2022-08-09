@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button } from "@mui/material";
-import Alert from "@mui/material/Alert";
+import { Grid, TextField, Button ,Alert} from "@mui/material";
+import axios from "axios"
 
-export const NewAppointment = ({ handlesubmit }) => {
+export const NewAppointment = () => {
   const [user, setUser] = useState({});
-  const [issuccess, setIssuccess] = useState(false);
+  const [issuccess,setIssuccess]=useState(false)
 
-  if (handlesubmit === true) {
-    setIssuccess(true);
+  const handlesubmit=async()=>{
+    const url="http://localhost:4444/api/addregistration"
+    const payload=user
+    
+    const result=await axios.post(url,payload)
+    if(result.status===200)
+        {setIssuccess(true)
+        }
   }
+
+ 
   return (
     <div>
       <div className="appointmentapplication">
@@ -130,17 +138,14 @@ export const NewAppointment = ({ handlesubmit }) => {
             <Button variant="contained">CANCEL</Button>
           </Grid>
           <Grid item xs={2}>
-            <Button variant="contained" onClick={() => handlesubmit(user)}>
+            <Button variant="contained" onClick={handlesubmit}>
               Register
             </Button>
           </Grid>
           <Grid item xs={12}>
-            {issuccess && (
-              <Alert severity="success">
-                This is a success alert — check it out!
-              </Alert>
-            )}
-          </Grid>
+                {issuccess && <Alert severity="success">Registration Successfully....!</Alert>}
+            </Grid>
+         
         </Grid>
       </div>
     </div>

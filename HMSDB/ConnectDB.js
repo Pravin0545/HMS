@@ -1,7 +1,7 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 const ConnectDB = () => {
-  const db = "mongodb://localhost/empdb";
+  const db = "mongodb://localhost/hms";
 
   mongoose
     .connect(db)

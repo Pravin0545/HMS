@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, TextField, Button ,Alert} from "@mui/material";
+import axios from "axios"
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,16 +11,22 @@ import Paper from "@mui/material/Paper";
 
 export const Registration = () => {
   const [user, setUser] = useState({});
-  const [userreg, setUserreg] = useState([]);
+  const [data,setData]=useState([])
+  const [issuccess,setIssuccess]=useState(false)
 
-  const result = [userreg];
+  const handlesubmit=async()=>{
+    const url="http://localhost:4444/api/addregistration"
+    const payload=user
+    
+    const result=await axios.post(url,payload)
+    if(result.status===200)
+        {setIssuccess(true)
+        }
 
-  localStorage.setItem("userreg", JSON.stringify(userreg));
+        setData([user])
+  }
 
-  const handleregsubmit = () => {
-    setUserreg(user);
-  };
-  console.log(userreg);
+ 
   return (
     <div>
       <div className="appointmentapplication">
@@ -141,14 +148,17 @@ export const Registration = () => {
             <Button variant="contained">CANCEL</Button>
           </Grid>
           <Grid item xs={2}>
-            <Button variant="contained" onClick={() => handleregsubmit()}>
+            <Button variant="contained" onClick={handlesubmit}>
               Register
             </Button>
           </Grid>
+          <Grid item xs={12}>
+                {issuccess && <Alert severity="success">Registration Successfully....!</Alert>}
+            </Grid>
+         
         </Grid>
       </div>
-      <div>
-        <TableContainer component={Paper} style={{ marginTop: 10 }}>
+      <TableContainer component={Paper} style={{ marginTop: 10 }}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -163,7 +173,7 @@ export const Registration = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {result.map((item, index) => (
+              {data.map((item, index) => (
                 <TableRow>
                   <TableCell align="center">{index + 1}</TableCell>
                   <TableCell align="center">{item.name}</TableCell>
@@ -178,7 +188,6 @@ export const Registration = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
     </div>
   );
 };

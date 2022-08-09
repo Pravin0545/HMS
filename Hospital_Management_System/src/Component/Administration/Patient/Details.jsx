@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios"
+import { Button } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,16 +10,28 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 export const Details = () => {
-  const result = JSON.parse(localStorage.getItem("userdata"));
-  const result1 = JSON.parse(localStorage.getItem("userreg"));
+  const [userdata,setUserdata]=useState([])
 
-  const result2 = [result1];
-  console.log(result);
+  const getdata=async()=>{
+    const result=await axios.get("http://localhost:4444/registration")
+    setUserdata(result.data)
+    console.log(result.data)
+  }
+
+  useEffect(()=>{
+    getdata()
+  },[])
+
+  const handledelete=(index)=>{
+    const filter=userdata.filter((elem,ind)=>ind!==index)
+    setUserdata(filter)
+  }
+
 
   return (
     <div>
-      <div >
-        <TableContainer component={Paper}>
+      <div>
+      <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -32,7 +46,7 @@ export const Details = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {result.map((item, index) => (
+              {userdata.map((item, index) => (
                 <TableRow>
                   <TableCell align="center">{index + 101}</TableCell>
                   <TableCell align="center">{item.name}</TableCell>
@@ -42,23 +56,11 @@ export const Details = () => {
                   <TableCell align="center">{item.address}</TableCell>
                   <TableCell align="center">{item.aadhar}</TableCell>
                   <TableCell align="center">{item.date}</TableCell>
+                  <Button onClick={()=>handledelete(index)}>DELETE</Button>
                 </TableRow>
               ))}
             </TableBody>
-            <TableBody>
-              {result2.map((item, index) => (
-                <TableRow>
-                  <TableCell align="center">{index + 1}</TableCell>
-                  <TableCell align="center">{item.name}</TableCell>
-                  <TableCell align="center">{item.number}</TableCell>
-                  <TableCell align="center">{item.email}</TableCell>
-                  <TableCell align="center">{item.dob}</TableCell>
-                  <TableCell align="center">{item.address}</TableCell>
-                  <TableCell align="center">{item.aadhar}</TableCell>
-                  <TableCell align="center">{item.date}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
+           
           </Table>
         </TableContainer>
       </div>
