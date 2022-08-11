@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -8,13 +9,34 @@ import {
   Button,
   FormControl,
   InputLabel,
+  Alert,
 } from "@mui/material";
 
 export const Payment = ({ handlepayment }) => {
   const [paymentdata, setData] = useState([]);
-  const paydata = JSON.parse(localStorage.getItem("userroom"));
+  const [paydata, setPaydata] = useState([]);
+  const [issuccess, setIssuccess] = useState(false);
 
-  // console.log(data);
+  const getdata = async () => {
+    const result = await axios.get("http://localhost:4444/roomdata");
+    setPaydata(result.data);
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  const handlesubmit = async () => {
+    const url = "http://localhost:4444/api/addpaymentdata";
+    const payload = paymentdata;
+
+    const result = await axios.post(url, payload);
+    if (result.status === 200) {
+      setIssuccess(true);
+    }
+  };
+
+  console.log(paydata);
   return (
     <div>
       <div className="appointmentapplication">
@@ -170,11 +192,7 @@ export const Payment = ({ handlepayment }) => {
           <Grid item xs={6}></Grid>
           <Grid item xs={5}></Grid>
           <Grid item xs={2}>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => handlepayment(paymentdata)}
-            >
+            <Button variant="contained" color="success" onClick={handlesubmit}>
               Submit
             </Button>
           </Grid>
@@ -182,6 +200,11 @@ export const Payment = ({ handlepayment }) => {
             <Button variant="contained" color="error">
               Reset
             </Button>
+          </Grid>
+          <Grid item xs={12}>
+            {issuccess && (
+              <Alert severity="success">Registration Successfully....!</Alert>
+            )}
           </Grid>
         </Grid>
       </div>

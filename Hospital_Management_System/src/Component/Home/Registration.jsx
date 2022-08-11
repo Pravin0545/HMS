@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button ,Alert} from "@mui/material";
-import axios from "axios"
+import { Grid, TextField, Button, Alert } from "@mui/material";
+import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,25 +8,25 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Link } from "react-router-dom";
 
 export const Registration = () => {
   const [user, setUser] = useState({});
-  const [data,setData]=useState([])
-  const [issuccess,setIssuccess]=useState(false)
+  const [data, setData] = useState([]);
+  const [issuccess, setIssuccess] = useState(false);
 
-  const handlesubmit=async()=>{
-    const url="http://localhost:4444/api/addregistration"
-    const payload=user
-    
-    const result=await axios.post(url,payload)
-    if(result.status===200)
-        {setIssuccess(true)
-        }
+  const handlesubmit = async () => {
+    const url = "http://localhost:4444/api/addregistration";
+    const payload = user;
 
-        setData([user])
-  }
+    const result = await axios.post(url, payload);
+    if (result.status === 200) {
+      setIssuccess(true);
+    }
 
- 
+    setData([user]);
+  };
+
   return (
     <div>
       <div className="appointmentapplication">
@@ -143,51 +143,55 @@ export const Registration = () => {
         </Grid>
         <br />
         <Grid container>
-          <Grid item xs={4.5}></Grid>
-          <Grid item xs={2}>
-            <Button variant="contained">CANCEL</Button>
-          </Grid>
+          <Grid item xs={3}></Grid>
           <Grid item xs={2}>
             <Button variant="contained" onClick={handlesubmit}>
               Register
             </Button>
           </Grid>
+          <Grid item xs={2}>
+            <Link to="/">
+              {" "}
+              <Button variant="contained">CANCEL</Button>
+            </Link>
+          </Grid>
           <Grid item xs={12}>
-                {issuccess && <Alert severity="success">Registration Successfully....!</Alert>}
-            </Grid>
-         
+            {issuccess && (
+              <Alert severity="success">Registration Successfully....!</Alert>
+            )}
+          </Grid>
         </Grid>
       </div>
       <TableContainer component={Paper} style={{ marginTop: 10 }}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">ID</TableCell>
+              <TableCell align="center">Name</TableCell>
+              <TableCell align="center">Mobile</TableCell>
+              <TableCell align="center">Email</TableCell>
+              <TableCell align="center">DOB</TableCell>
+              <TableCell align="center">Address</TableCell>
+              <TableCell align="center">Aadhar</TableCell>
+              <TableCell align="center">Date Of Appointment</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map((item, index) => (
               <TableRow>
-                <TableCell align="center">ID</TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Mobile</TableCell>
-                <TableCell align="center">Email</TableCell>
-                <TableCell align="center">DOB</TableCell>
-                <TableCell align="center">Address</TableCell>
-                <TableCell align="center">Aadhar</TableCell>
-                <TableCell align="center">Date Of Appointment</TableCell>
+                <TableCell align="center">{index + 1}</TableCell>
+                <TableCell align="center">{item.name}</TableCell>
+                <TableCell align="center">{item.number}</TableCell>
+                <TableCell align="center">{item.email}</TableCell>
+                <TableCell align="center">{item.dob}</TableCell>
+                <TableCell align="center">{item.address}</TableCell>
+                <TableCell align="center">{item.aadhar}</TableCell>
+                <TableCell align="center">{item.date}</TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {data.map((item, index) => (
-                <TableRow>
-                  <TableCell align="center">{index + 1}</TableCell>
-                  <TableCell align="center">{item.name}</TableCell>
-                  <TableCell align="center">{item.number}</TableCell>
-                  <TableCell align="center">{item.email}</TableCell>
-                  <TableCell align="center">{item.dob}</TableCell>
-                  <TableCell align="center">{item.address}</TableCell>
-                  <TableCell align="center">{item.aadhar}</TableCell>
-                  <TableCell align="center">{item.date}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

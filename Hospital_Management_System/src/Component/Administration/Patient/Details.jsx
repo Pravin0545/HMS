@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"
+import axios from "axios";
 import { Button } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,28 +10,27 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 export const Details = () => {
-  const [userdata,setUserdata]=useState([])
+  const [userdata, setUserdata] = useState([]);
 
-  const getdata=async()=>{
-    const result=await axios.get("http://localhost:4444/registration")
-    setUserdata(result.data)
-    console.log(result.data)
-  }
+  const getdata = async () => {
+    const result = await axios.get("http://localhost:4444/registration");
+    setUserdata(result.data);
+    console.log(result.data);
+  };
 
-  useEffect(()=>{
-    getdata()
-  },[])
+  useEffect(() => {
+    getdata();
+  }, []);
 
-  const handledelete=(index)=>{
-    const filter=userdata.filter((elem,ind)=>ind!==index)
-    setUserdata(filter)
-  }
-
+  const handledelete = (index) => {
+    const filter = userdata.filter((elem, ind) => ind !== index);
+    setUserdata(filter);
+  };
 
   return (
     <div>
       <div>
-      <TableContainer component={Paper}>
+        <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -43,6 +42,7 @@ export const Details = () => {
                 <TableCell align="center">Address</TableCell>
                 <TableCell align="center">Aadhar</TableCell>
                 <TableCell align="center">Date Of Appointment</TableCell>
+                <TableCell align="center"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -56,11 +56,10 @@ export const Details = () => {
                   <TableCell align="center">{item.address}</TableCell>
                   <TableCell align="center">{item.aadhar}</TableCell>
                   <TableCell align="center">{item.date}</TableCell>
-                  <Button onClick={()=>handledelete(index)}>DELETE</Button>
+                  <Button onClick={() => handledelete(index)}>DELETE</Button>
                 </TableRow>
               ))}
             </TableBody>
-           
           </Table>
         </TableContainer>
       </div>

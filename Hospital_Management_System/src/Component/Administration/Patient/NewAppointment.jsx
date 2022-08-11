@@ -1,22 +1,27 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button ,Alert} from "@mui/material";
-import axios from "axios"
+import { Grid, TextField, Button, Alert } from "@mui/material";
+import axios from "axios";
 
 export const NewAppointment = () => {
   const [user, setUser] = useState({});
-  const [issuccess,setIssuccess]=useState(false)
+  const [issuccess, setIssuccess] = useState(false);
 
-  const handlesubmit=async()=>{
-    const url="http://localhost:4444/api/addregistration"
-    const payload=user
-    
-    const result=await axios.post(url,payload)
-    if(result.status===200)
-        {setIssuccess(true)
-        }
-  }
 
- 
+  const handlesubmit = async () => {
+    const url = "http://localhost:4444/api/addregistration";
+    const payload = user;
+
+    const result = await axios.post(url, payload);
+    if (result.status === 200) {
+      setIssuccess(true);
+    }
+    setUser(" ");
+  };
+
+  const handlereset = () => {
+    setUser(" ");
+  };
+
   return (
     <div>
       <div className="appointmentapplication">
@@ -27,6 +32,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={2.5}>
             <TextField
+              value={user.name}
               variant="outlined"
               label="Enter Full Name"
               type="text"
@@ -39,6 +45,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={4.5}>
             <TextField
+              value={user.number}
               variant="outlined"
               label="Enter Number"
               type="number"
@@ -56,6 +63,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={2.5}>
             <TextField
+              value={user.email}
               variant="outlined"
               label="Enter Email"
               type="email"
@@ -68,6 +76,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={2.1}>
             <TextField
+              value={user.dob}
               variant="outlined"
               type="date"
               onChange={(e) => setUser({ ...user, dob: e.target.value })}
@@ -84,6 +93,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={2.5}>
             <TextField
+              value={user.aadhar}
               variant="outlined"
               label="Enter Aadhar Number"
               type="email"
@@ -96,6 +106,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={2.1}>
             <TextField
+              value={user.date}
               variant="outlined"
               type="date"
               onChange={(e) => setUser({ ...user, date: e.target.value })}
@@ -112,6 +123,7 @@ export const NewAppointment = () => {
           </Grid>
           <Grid item xs={6.1}>
             <TextField
+              value={user.address}
               variant="outlined"
               label="Enter Address"
               required
@@ -133,19 +145,22 @@ export const NewAppointment = () => {
         </Grid>
         <br />
         <Grid container>
-          <Grid item xs={4.5}></Grid>
-          <Grid item xs={2}>
-            <Button variant="contained">CANCEL</Button>
-          </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={4}>
             <Button variant="contained" onClick={handlesubmit}>
               Register
             </Button>
           </Grid>
+          <Grid item xs={4}>
+            <Button variant="contained" onClick={() => handlereset()}>
+              CANCEL
+            </Button>
+          </Grid>
           <Grid item xs={12}>
-                {issuccess && <Alert severity="success">Registration Successfully....!</Alert>}
-            </Grid>
-         
+            {issuccess && (
+              <Alert severity="success">Registration Successfully....!</Alert>
+            )}
+          </Grid>
         </Grid>
       </div>
     </div>

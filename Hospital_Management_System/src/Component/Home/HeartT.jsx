@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Grid, Card, CardContent, Button } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
+import { DoctorData } from "./DoctorData";
+
 import { heartdata, Overviewheart } from "./HearttData";
 
 export const HeartT = () => {
@@ -24,37 +24,7 @@ export const HeartT = () => {
           {data.map((item) => {
             return (
               <div>
-                <Card>
-                  <CardContent className="dcard1">
-                    <Grid container>
-                      <Grid item xs={1}></Grid>
-                      <Grid item xs={2}>
-                        {" "}
-                        <Avatar
-                          alt="Remy Sharp"
-                          src="./img/Doctor1.webp"
-                          sx={{ width: 150, height: 150 }}
-                        />
-                      </Grid>
-                      <Grid item xs={8}>
-                        <h4>{item.name}</h4>
-                        <br />
-                        <h4>{item.edu}</h4>
-                        <br />
-                        <h3>{item.exp}</h3>
-                        <br />
-                        <p>{item.details}</p>
-                        <br />
-                        <br />
-                        <Link to="/bone/registration">
-                          <Button variant="contained" color="secondary">
-                            Registration
-                          </Button>
-                        </Link>
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-                </Card>
+                <DoctorData item={item} />
               </div>
             );
           })}

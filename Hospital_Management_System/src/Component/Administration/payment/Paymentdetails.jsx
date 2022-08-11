@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,9 +7,25 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
 
 export const Paymentdetails = () => {
-  const result = JSON.parse(localStorage.getItem("userpayment"));
+  const [paymentdata, setPaymentdata] = useState([]);
+
+  const getdata = async () => {
+    const result = await axios.get("http://localhost:4444/paymentdata");
+    setPaymentdata(result.data);
+    console.log(result.data);
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  const handledelete = (index) => {
+    const filter = paymentdata.filter((elem, ind) => ind !== index);
+    setPaymentdata(filter);
+  };
 
   return (
     <div>
@@ -22,10 +39,11 @@ export const Paymentdetails = () => {
               <TableCell align="center">Doctor Name</TableCell>
               <TableCell align="center">Room No</TableCell>
               <TableCell align="center">Total Bill</TableCell>
+              <TableCell align="center"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {result.map((item, index) => (
+            {paymentdata.map((item, index) => (
               <TableRow>
                 <TableCell align="center">{index + 101}</TableCell>
                 <TableCell align="center">{item.pname}</TableCell>
@@ -33,6 +51,7 @@ export const Paymentdetails = () => {
                 <TableCell align="center">{item.drname}</TableCell>
                 <TableCell align="center">{item.roomno}</TableCell>
                 <TableCell align="center">{item.tamount}</TableCell>
+                <Button onClick={() => handledelete(index)}>DELETE</Button>
               </TableRow>
             ))}
           </TableBody>
