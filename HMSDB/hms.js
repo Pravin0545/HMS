@@ -30,12 +30,11 @@ app.post("/api/addregistration", (req, res) => {
   }
 });
 
-app.put("/api/updateregistration", async (req, res) => {
+app.put("/api/updateregistration/:aadhar", async (req, res) => {
   try {
     ConnectDB();
     const currentRegistration = await RegistrationModel.findOneAndUpdate({
-      aadhar: req.body.aadhar,
-    });
+      aadhar: req.params.aadhar},req.body);
     const newRegistration = {
       name: req.body.name,
       number: req.body.number,
@@ -48,6 +47,19 @@ app.put("/api/updateregistration", async (req, res) => {
     currentRegistration.overwrite(newRegistration);
     currentRegistration.save();
     res.send("Update Successfully");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+
+app.delete("/api/deleteregistration/:aadhar", async (req, res) => {
+  try {
+    ConnectDB();
+    const currentRegistration = await RegistrationModel.findOneAndDelete({
+      aadhar: req.params.aadhar},req);
+    currentRegistration.save();
+    res.send("Deleted Successfully");
   } catch (err) {
     console.log(err);
   }

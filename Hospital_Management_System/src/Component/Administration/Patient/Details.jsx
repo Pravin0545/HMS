@@ -31,7 +31,7 @@ export const Details = () => {
   };
 
   const handlesubmit=async()=>{
-    const url = "http://localhost:4444/api/updateregistration";
+    const url = `http://localhost:4444/api/updateregistration/${update.aadhar}`;
     const payload = update;
 
     const result = await axios.put(url, payload);
