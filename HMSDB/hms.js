@@ -30,7 +30,7 @@ app.post("/api/addregistration", (req, res) => {
   }
 });
 
-app.post("/api/updateregistration", async (req, res) => {
+app.put("/api/updateregistration", async (req, res) => {
   try {
     ConnectDB();
     const currentRegistration = await RegistrationModel.findOneAndUpdate({
