@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button } from "@mui/material";
+import { Button,TextField,Alert } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,6 +11,9 @@ import Paper from "@mui/material/Paper";
 
 export const Details = () => {
   const [userdata, setUserdata] = useState([]);
+  const [update,setUpdate]=useState({})
+  const [issuccess, setIssuccess] = useState(false);
+
 
   const getdata = async () => {
     const result = await axios.get("http://localhost:4444/registration");
@@ -27,8 +30,32 @@ export const Details = () => {
     setUserdata(filter);
   };
 
+  const handlesubmit=async()=>{
+    const url = "http://localhost:4444/api/updateregistration";
+    const payload = update;
+
+    const result = await axios.put(url, payload);
+    if (result.status === 200) {
+      setIssuccess(true);
+    }
+   
+  }
+
   return (
     <div>
+      
+      <TextField label="Enter Name" onChange={(e) => setUpdate({ ...update, name: e.target.value })}></TextField>
+      <TextField label="Enter Aadhar" onChange={(e) => setUpdate({ ...update, aadhar: e.target.value })}></TextField>
+      <TextField type="date" onChange={(e) => setUpdate({ ...update, date: e.target.value })}></TextField>
+      <TextField type="text" label="Enter Email" onChange={(e) => setUpdate({ ...update, email: e.target.value })}></TextField>
+      <TextField type="number" label="Enter Number" onChange={(e) => setUpdate({ ...update, number: e.target.value })}></TextField>
+      <TextField type="date" onChange={(e) => setUpdate({ ...update, dob: e.target.value })}></TextField>
+      <TextField type="text" label="Enter Address" onChange={(e) => setUpdate({ ...update, address: e.target.value })}></TextField>
+      <Button variant="contained" onClick={()=>handlesubmit()}>SUBMIT</Button>
+      {issuccess && (
+              <Alert severity="success">Registration Successfully....!</Alert>
+            )}
+      
       <div>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
