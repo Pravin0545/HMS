@@ -25,9 +25,19 @@ export const Details = () => {
     getdata();
   }, []);
 
-  const handledelete = (index) => {
-    const filter = userdata.filter((elem, ind) => ind !== index);
-    setUserdata(filter);
+  const handledelete = async(id) => {
+    // const result=await fetch(`http://localhost:4444/api/deleteregistration/${id}`,{
+    //   method:"Delete"
+    // })
+    // result=await result.json()
+    // if(result){
+    //   alert("record is deleted")
+    // }
+    const result=await axios.delete(`http://localhost:4444/api/deleteregistration/${id}`)
+    result=await result.json()
+    if(result){
+      getdata();
+    }
   };
 
   const handlesubmit=async()=>{
@@ -74,7 +84,7 @@ export const Details = () => {
             </TableHead>
             <TableBody>
               {userdata.map((item, index) => (
-                <TableRow>
+                <TableRow key={item._id}>
                   <TableCell align="center">{index + 101}</TableCell>
                   <TableCell align="center">{item.name}</TableCell>
                   <TableCell align="center">{item.number}</TableCell>
@@ -83,7 +93,7 @@ export const Details = () => {
                   <TableCell align="center">{item.address}</TableCell>
                   <TableCell align="center">{item.aadhar}</TableCell>
                   <TableCell align="center">{item.date}</TableCell>
-                  <Button onClick={() => handledelete(index)}>DELETE</Button>
+                  <Button onClick={() => handledelete(item._id)}>DELETE</Button>
                 </TableRow>
               ))}
             </TableBody>

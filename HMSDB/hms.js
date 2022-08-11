@@ -12,7 +12,7 @@ app.use(cors());
 app.get("/registration", async (req, res) => {
   try {
     ConnectDB();
-    const result = await RegistrationModel.find({});
+    const result = await RegistrationModel.find();
     res.send(result);
   } catch (err) {
     console.log(err);
@@ -53,16 +53,11 @@ app.put("/api/updateregistration/:aadhar", async (req, res) => {
 });
 
 
-app.delete("/api/deleteregistration/:aadhar", async (req, res) => {
-  try {
+app.delete("/api/deleteregistration/:id", async (req, res) => {
+  
     ConnectDB();
-    const currentRegistration = await RegistrationModel.findOneAndDelete({
-      aadhar: req.params.aadhar},req);
-    currentRegistration.save();
-    res.send("Deleted Successfully");
-  } catch (err) {
-    console.log(err);
-  }
+    const currentRegistration = await RegistrationModel.deleteOne({_id: req.params.id});
+    res.send(currentRegistration);
 });
 
 app.get("/roomdata", async (req, res) => {
