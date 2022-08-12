@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button,TextField,Alert } from "@mui/material";
+import { Button, TextField, Alert } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,13 +11,15 @@ import Paper from "@mui/material/Paper";
 
 export const Details = () => {
   const [userdata, setUserdata] = useState([]);
-  const [update,setUpdate]=useState({})
+  const [userdatacopy, setUserdatacopy] = useState([]);
+  const [update, setUpdate] = useState({});
   const [issuccess, setIssuccess] = useState(false);
-
+  const [search, setSearch] = useState("");
 
   const getdata = async () => {
     const result = await axios.get("http://localhost:4444/registration");
     setUserdata(result.data);
+    setUserdatacopy(result.data);
     console.log(result.data);
   };
 
@@ -25,7 +27,7 @@ export const Details = () => {
     getdata();
   }, []);
 
-  const handledelete = async(id) => {
+  const handledelete = async (aadhar) => {
     // const result=await fetch(`http://localhost:4444/api/deleteregistration/${id}`,{
     //   method:"Delete"
     // })
@@ -33,14 +35,17 @@ export const Details = () => {
     // if(result){
     //   alert("record is deleted")
     // }
-    const result=await axios.delete(`http://localhost:4444/api/deleteregistration/${id}`)
-    result=await result.json()
-    if(result){
-      getdata();
+    const result = await axios.delete(
+      `http://localhost:4444/api/deleteregistration/${aadhar}`
+    );
+    result = await result.json();
+    if (result.status === 200) {
+      // setUserdata(result.data);
+      alert("deleted");
     }
   };
 
-  const handlesubmit=async()=>{
+  const handlesubmit = async () => {
     const url = `http://localhost:4444/api/updateregistration/${update.aadhar}`;
     const payload = update;
 
@@ -48,24 +53,63 @@ export const Details = () => {
     if (result.status === 200) {
       setIssuccess(true);
     }
-   
-  }
+  };
+
+  useEffect(() => {
+    const filtered = userdatacopy.filter((item) =>
+      item.name.includes(search.toLowerCase())
+    );
+    setUserdata(filtered);
+  }, [search]);
 
   return (
     <div>
-      
-      <TextField label="Enter Name" onChange={(e) => setUpdate({ ...update, name: e.target.value })}></TextField>
-      <TextField label="Enter Aadhar" onChange={(e) => setUpdate({ ...update, aadhar: e.target.value })}></TextField>
-      <TextField type="date" onChange={(e) => setUpdate({ ...update, date: e.target.value })}></TextField>
-      <TextField type="text" label="Enter Email" onChange={(e) => setUpdate({ ...update, email: e.target.value })}></TextField>
-      <TextField type="number" label="Enter Number" onChange={(e) => setUpdate({ ...update, number: e.target.value })}></TextField>
-      <TextField type="date" onChange={(e) => setUpdate({ ...update, dob: e.target.value })}></TextField>
-      <TextField type="text" label="Enter Address" onChange={(e) => setUpdate({ ...update, address: e.target.value })}></TextField>
-      <Button variant="contained" onClick={()=>handlesubmit()}>SUBMIT</Button>
+      <TextField
+        label="Enter Name"
+        onChange={(e) => setUpdate({ ...update, name: e.target.value })}
+      ></TextField>
+      <TextField
+        label="Enter Aadhar"
+        onChange={(e) => setUpdate({ ...update, aadhar: e.target.value })}
+      ></TextField>
+      <TextField
+        type="date"
+        onChange={(e) => setUpdate({ ...update, date: e.target.value })}
+      ></TextField>
+      <TextField
+        type="text"
+        label="Enter Email"
+        onChange={(e) => setUpdate({ ...update, email: e.target.value })}
+      ></TextField>
+      <TextField
+        type="number"
+        label="Enter Number"
+        onChange={(e) => setUpdate({ ...update, number: e.target.value })}
+      ></TextField>
+      <TextField
+        type="date"
+        onChange={(e) => setUpdate({ ...update, dob: e.target.value })}
+      ></TextField>
+      <TextField
+        type="text"
+        label="Enter Address"
+        onChange={(e) => setUpdate({ ...update, address: e.target.value })}
+      ></TextField>
+      <Button variant="contained" onClick={() => handlesubmit()}>
+        SUBMIT
+      </Button>
       {issuccess && (
-              <Alert severity="success">Registration Successfully....!</Alert>
-            )}
-      
+        <Alert severity="success">Registration Successfully....!</Alert>
+      )}
+      <br />
+      <br />
+      <TextField
+        className="searchfield"
+        label="Search"
+        variant="filled"
+        onChange={(e) => setSearch(e.target.value)}
+      ></TextField>
+
       <div>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -84,7 +128,7 @@ export const Details = () => {
             </TableHead>
             <TableBody>
               {userdata.map((item, index) => (
-                <TableRow key={item._id}>
+                <TableRow key={item}>
                   <TableCell align="center">{index + 101}</TableCell>
                   <TableCell align="center">{item.name}</TableCell>
                   <TableCell align="center">{item.number}</TableCell>
@@ -93,7 +137,9 @@ export const Details = () => {
                   <TableCell align="center">{item.address}</TableCell>
                   <TableCell align="center">{item.aadhar}</TableCell>
                   <TableCell align="center">{item.date}</TableCell>
-                  <Button onClick={() => handledelete(item._id)}>DELETE</Button>
+                  <Button onClick={() => handledelete(item.aadhar)}>
+                    DELETE
+                  </Button>
                 </TableRow>
               ))}
             </TableBody>

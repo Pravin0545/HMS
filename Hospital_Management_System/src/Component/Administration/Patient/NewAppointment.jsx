@@ -5,17 +5,24 @@ import axios from "axios";
 export const NewAppointment = () => {
   const [user, setUser] = useState({});
   const [issuccess, setIssuccess] = useState(false);
-
+  const [notsuccess, setNotsuccess] = useState(false);
 
   const handlesubmit = async () => {
-    const url = "http://localhost:4444/api/addregistration";
-    const payload = user;
+    if (
+      user.name.length > 2 &&
+      user.aadhar.length == 12 &&
+      user.number.length == 10
+    ) {
+      const url = "http://localhost:4444/api/addregistration";
+      const payload = user;
 
-    const result = await axios.post(url, payload);
-    if (result.status === 200) {
-      setIssuccess(true);
+      const result = await axios.post(url, payload);
+      if (result.status === 200) {
+        setIssuccess(true);
+      }
+    } else {
+      setNotsuccess(true);
     }
-    setUser(" ");
   };
 
   const handlereset = () => {
@@ -36,7 +43,9 @@ export const NewAppointment = () => {
               variant="outlined"
               label="Enter Full Name"
               type="text"
-              onChange={(e) => setUser({ ...user, name: e.target.value })}
+              onChange={(e) =>
+                setUser({ ...user, name: e.target.value.toLowerCase() })
+              }
               required
             ></TextField>
           </Grid>
@@ -159,6 +168,9 @@ export const NewAppointment = () => {
           <Grid item xs={12}>
             {issuccess && (
               <Alert severity="success">Registration Successfully....!</Alert>
+            )}
+            {notsuccess && (
+              <Alert severity="warning">Enter all details....!</Alert>
             )}
           </Grid>
         </Grid>

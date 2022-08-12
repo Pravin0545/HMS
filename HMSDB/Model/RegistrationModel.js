@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const RegistrationModel = mongoose.model("registrations", {
-  name: { type: String },
+  name: { type: String, lowercase: true },
   number: { type: Number },
   email: { type: String },
   dob: { type: String },

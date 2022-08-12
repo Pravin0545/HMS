@@ -33,8 +33,12 @@ app.post("/api/addregistration", (req, res) => {
 app.put("/api/updateregistration/:aadhar", async (req, res) => {
   try {
     ConnectDB();
-    const currentRegistration = await RegistrationModel.findOneAndUpdate({
-      aadhar: req.params.aadhar},req.body);
+    const currentRegistration = await RegistrationModel.findOneAndUpdate(
+      {
+        aadhar: req.params.aadhar,
+      },
+      req.body
+    );
     const newRegistration = {
       name: req.body.name,
       number: req.body.number,
@@ -52,12 +56,12 @@ app.put("/api/updateregistration/:aadhar", async (req, res) => {
   }
 });
 
-
-app.delete("/api/deleteregistration/:id", async (req, res) => {
-  
-    ConnectDB();
-    const currentRegistration = await RegistrationModel.deleteOne({_id: req.params.id});
-    res.send(currentRegistration);
+app.delete("/api/deleteregistration/:aadhar", async (req, res) => {
+  ConnectDB();
+  const currentRegistration = await RegistrationModel.deleteOne({
+    aadhar: req.params.aadhar,
+  });
+  res.send(currentRegistration);
 });
 
 app.get("/roomdata", async (req, res) => {
