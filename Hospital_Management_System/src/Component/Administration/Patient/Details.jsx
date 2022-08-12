@@ -28,21 +28,10 @@ export const Details = () => {
   }, []);
 
   const handledelete = async (aadhar) => {
-    // const result=await fetch(`http://localhost:4444/api/deleteregistration/${id}`,{
-    //   method:"Delete"
-    // })
-    // result=await result.json()
-    // if(result){
-    //   alert("record is deleted")
-    // }
     const result = await axios.delete(
       `http://localhost:4444/api/deleteregistration/${aadhar}`
     );
     result = await result.json();
-    if (result.status === 200) {
-      // setUserdata(result.data);
-      alert("deleted");
-    }
   };
 
   const handlesubmit = async () => {
@@ -68,6 +57,25 @@ export const Details = () => {
         label="Enter Name"
         onChange={(e) => setUpdate({ ...update, name: e.target.value })}
       ></TextField>
+        <TextField
+          type="number"
+          label="Enter Number"
+          onChange={(e) => setUpdate({ ...update, number: e.target.value })}
+        ></TextField>
+            <TextField
+              type="text"
+              label="Enter Email"
+              onChange={(e) => setUpdate({ ...update, email: e.target.value })}
+            ></TextField>
+          <TextField
+            type="date"
+            onChange={(e) => setUpdate({ ...update, dob: e.target.value })}
+          ></TextField>
+          <TextField
+            type="text"
+            label="Enter Address"
+            onChange={(e) => setUpdate({ ...update, address: e.target.value })}
+          ></TextField>
       <TextField
         label="Enter Aadhar"
         onChange={(e) => setUpdate({ ...update, aadhar: e.target.value })}
@@ -76,30 +84,11 @@ export const Details = () => {
         type="date"
         onChange={(e) => setUpdate({ ...update, date: e.target.value })}
       ></TextField>
-      <TextField
-        type="text"
-        label="Enter Email"
-        onChange={(e) => setUpdate({ ...update, email: e.target.value })}
-      ></TextField>
-      <TextField
-        type="number"
-        label="Enter Number"
-        onChange={(e) => setUpdate({ ...update, number: e.target.value })}
-      ></TextField>
-      <TextField
-        type="date"
-        onChange={(e) => setUpdate({ ...update, dob: e.target.value })}
-      ></TextField>
-      <TextField
-        type="text"
-        label="Enter Address"
-        onChange={(e) => setUpdate({ ...update, address: e.target.value })}
-      ></TextField>
       <Button variant="contained" onClick={() => handlesubmit()}>
         SUBMIT
       </Button>
       {issuccess && (
-        <Alert severity="success">Registration Successfully....!</Alert>
+        <Alert severity="success">Updated Successfully....!</Alert>
       )}
       <br />
       <br />

@@ -59,7 +59,7 @@ app.put("/api/updateregistration/:aadhar", async (req, res) => {
 app.delete("/api/deleteregistration/:aadhar", async (req, res) => {
   ConnectDB();
   const currentRegistration = await RegistrationModel.deleteOne({
-    aadhar: req.params.aadhar,
+    aadhar: req.params.aadhar
   });
   res.send(currentRegistration);
 });

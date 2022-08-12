@@ -19,6 +19,7 @@ export const NewAppointment = () => {
       const result = await axios.post(url, payload);
       if (result.status === 200) {
         setIssuccess(true);
+        setNotsuccess(false)
       }
     } else {
       setNotsuccess(true);
@@ -77,7 +78,7 @@ export const NewAppointment = () => {
               label="Enter Email"
               type="email"
               required
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              onChange={(e) => setUser({ ...user, email: e.target.value.toLowerCase() })}
             ></TextField>
           </Grid>
           <Grid item xs={1.5}>
@@ -107,7 +108,7 @@ export const NewAppointment = () => {
               label="Enter Aadhar Number"
               type="email"
               required
-              onChange={(e) => setUser({ ...user, aadhar: e.target.value })}
+              onChange={(e) => setUser({ ...user, aadhar: e.target.value.toLowerCase() })}
             ></TextField>
           </Grid>
           <Grid item xs={1.5}>
@@ -136,7 +137,7 @@ export const NewAppointment = () => {
               variant="outlined"
               label="Enter Address"
               required
-              onChange={(e) => setUser({ ...user, address: e.target.value })}
+              onChange={(e) => setUser({ ...user, address: e.target.value.toLowerCase() })}
               fullWidth
             />
           </Grid>
@@ -170,7 +171,7 @@ export const NewAppointment = () => {
               <Alert severity="success">Registration Successfully....!</Alert>
             )}
             {notsuccess && (
-              <Alert severity="warning">Enter all details....!</Alert>
+              <Alert severity="warning">Enter all details Properly....!</Alert>
             )}
           </Grid>
         </Grid>
