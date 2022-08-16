@@ -41,12 +41,12 @@ app.put("/api/updateregistration/:aadhar", async (req, res) => {
     );
     const newRegistration = {
       name: req.body.name,
-      number: req.body.number,
-      email: req.body.email,
-      dob: req.body.dob,
+      number: currentRegistration.number,
+      email: currentRegistration.email,
+      dob: currentRegistration.dob,
       aadhar: req.body.aadhar,
       date: req.body.date,
-      address: req.body.address,
+      address: currentRegistration.address,
     };
     currentRegistration.overwrite(newRegistration);
     currentRegistration.save();

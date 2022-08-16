@@ -18,6 +18,7 @@ import { Cancer } from "./Component/Home/Cancer";
 import { Bone } from "./Component/Home/Bone";
 import { PaymentParent } from "./Component/Administration/payment/PaymentParent";
 import { Registration } from "./Component/Home/Registration";
+import { PatientEdit } from "./Component/Administration/Patient/PatientEdit";
 
 function App() {
   return (
@@ -47,6 +48,10 @@ function App() {
           <Route
             path="/administration/patientdetails/details"
             element={<Details />}
+          />
+          <Route
+            path="/administration/patientdetails/details/paitentedit"
+            element={<PatientEdit />}
           />
           <Route path="/administration/room" element={<Room />} />
           <Route

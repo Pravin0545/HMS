@@ -10,8 +10,8 @@ export const NewAppointment = () => {
   const handlesubmit = async () => {
     if (
       user.name.length > 2 &&
-      user.aadhar.length == 12 &&
-      user.number.length == 10
+      user.aadhar.length === 12 &&
+      user.number.length === 10
     ) {
       const url = "http://localhost:4444/api/addregistration";
       const payload = user;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, TextField, Alert } from "@mui/material";
+import { Button, TextField, Alert, TableFooter } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -17,6 +17,8 @@ export const Details = () => {
   const [issuccess, setIssuccess] = useState(false);
   const [search, setSearch] = useState("");
   const [edit, setEdit] = useState({});
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   console.log(edit);
 
@@ -63,6 +65,14 @@ export const Details = () => {
     setUserdata(filtered);
   }, [search]);
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
     <div>
       <TextField
@@ -95,7 +105,7 @@ export const Details = () => {
       ></TextField>
 
       <div>
-        <TableContainer component={Paper} pagesize={5}>
+        <TableContainer component={Paper} className="detailtable">
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -111,27 +121,38 @@ export const Details = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {userdata.map((item, index) => (
-                <TableRow key={item}>
-                  <TableCell align="center">{index + 101}</TableCell>
-                  <TableCell align="center">{item.name}</TableCell>
-                  <TableCell align="center">{item.number}</TableCell>
-                  <TableCell align="center">{item.email}</TableCell>
-                  <TableCell align="center">{item.dob}</TableCell>
-                  <TableCell align="center">{item.address}</TableCell>
-                  <TableCell align="center">{item.aadhar}</TableCell>
-                  <TableCell align="center">{item.date}</TableCell>
-                  <TableCell align="center">
-                    <Button onClick={() => handledelete(item.aadhar)}>
-                      DELETE
-                    </Button>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Button onClick={() => handleedit(item)}>Edit</Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {userdata
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((item, index) => (
+                  <TableRow key={item}>
+                    <TableCell align="center">{index + 101}</TableCell>
+                    <TableCell align="center">{item.name}</TableCell>
+                    <TableCell align="center">{item.number}</TableCell>
+                    <TableCell align="center">{item.email}</TableCell>
+                    <TableCell align="center">{item.dob}</TableCell>
+                    <TableCell align="center">{item.address}</TableCell>
+                    <TableCell align="center">{item.aadhar}</TableCell>
+                    <TableCell align="center">{item.date}</TableCell>
+                    <TableCell align="center">
+                      <Button onClick={() => handledelete(item.aadhar)}>
+                        DELETE
+                      </Button>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Button onClick={() => handleedit(item)}>Edit</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 15]}
+              component="div"
+              count={userdata.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
           </Table>
         </TableContainer>
       </div>
